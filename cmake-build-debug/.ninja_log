@@ -1,3 +1,5 @@
 # ninja log v5
 0	453	7314602216952101	CMakeFiles/Prog3.dir/main.cpp.obj	da8d1f1884addfd
 455	648	7314602218871675	Prog3.exe	fa28babfe68898f2
+4	402	7314625309316903	CMakeFiles/Prog3.dir/main.cpp.obj	da8d1f1884addfd
+403	494	7314625310201014	Prog3.exe	fa28babfe68898f2
