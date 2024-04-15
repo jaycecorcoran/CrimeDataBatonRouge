@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/thoma/SCHOOL/Spring 24/CDA3101/FoodWasters
+# Install script for directory: C:/Users/thoma/SCHOOL/Spring 24/COP3530/FoodWasters
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/thoma/SCHOOL/Spring 24/CDA3101/FoodWasters/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/thoma/SCHOOL/Spring 24/COP3530/FoodWasters/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
