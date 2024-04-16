@@ -21,6 +21,10 @@ public:
 private:
     sf::RenderWindow window;
     sf::Font font;
+    sf::Text title;
+    sf::Text teamInfo;
+    sf::Texture foodTexture;
+    sf::Sprite foodSprite;
     void handleEvents();
     void draw();
 };
