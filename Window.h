@@ -25,6 +25,19 @@ private:
     sf::Text teamInfo;
     sf::Texture foodTexture;
     sf::Sprite foodSprite;
+
+    sf::RectangleShape button1;
+    sf::RectangleShape button2;
+    sf::Texture buttonTexture;
+    sf::Text buttonText1;
+    sf::Text buttonText2;
+
+    sf::RectangleShape searchBar;
+    sf::Text searchInput;
+
+    sf::Text stateTextLabel;
+    sf::Text countryTextLabel;
+
     void handleEvents();
     void draw();
 };
