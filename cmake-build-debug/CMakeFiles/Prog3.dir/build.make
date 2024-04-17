@@ -52,10 +52,10 @@ RM = "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters"
+CMAKE_SOURCE_DIR = C:\Users\jayce\COP3530\CrimeData
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\cmake-build-debug"
+CMAKE_BINARY_DIR = C:\Users\jayce\COP3530\CrimeData\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Prog3.dir/depend.make
@@ -70,48 +70,48 @@ include CMakeFiles/Prog3.dir/flags.make
 
 CMakeFiles/Prog3.dir/main.cpp.obj: CMakeFiles/Prog3.dir/flags.make
 CMakeFiles/Prog3.dir/main.cpp.obj: CMakeFiles/Prog3.dir/includes_CXX.rsp
-CMakeFiles/Prog3.dir/main.cpp.obj: C:/Users/thoma/SCHOOL/Spring\ 24/CDA3101/FoodWasters/main.cpp
+CMakeFiles/Prog3.dir/main.cpp.obj: C:/Users/jayce/COP3530/CrimeData/main.cpp
 CMakeFiles/Prog3.dir/main.cpp.obj: CMakeFiles/Prog3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Prog3.dir/main.cpp.obj"
-	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Prog3.dir/main.cpp.obj -MF CMakeFiles\Prog3.dir\main.cpp.obj.d -o CMakeFiles\Prog3.dir\main.cpp.obj -c "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jayce\COP3530\CrimeData\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Prog3.dir/main.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Prog3.dir/main.cpp.obj -MF CMakeFiles\Prog3.dir\main.cpp.obj.d -o CMakeFiles\Prog3.dir\main.cpp.obj -c C:\Users\jayce\COP3530\CrimeData\main.cpp
 
 CMakeFiles/Prog3.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Prog3.dir/main.cpp.i"
-	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\main.cpp" > CMakeFiles\Prog3.dir\main.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jayce\COP3530\CrimeData\main.cpp > CMakeFiles\Prog3.dir\main.cpp.i
 
 CMakeFiles/Prog3.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Prog3.dir/main.cpp.s"
-	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\main.cpp" -o CMakeFiles\Prog3.dir\main.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jayce\COP3530\CrimeData\main.cpp -o CMakeFiles\Prog3.dir\main.cpp.s
 
 CMakeFiles/Prog3.dir/Window.cpp.obj: CMakeFiles/Prog3.dir/flags.make
 CMakeFiles/Prog3.dir/Window.cpp.obj: CMakeFiles/Prog3.dir/includes_CXX.rsp
-CMakeFiles/Prog3.dir/Window.cpp.obj: C:/Users/thoma/SCHOOL/Spring\ 24/CDA3101/FoodWasters/Window.cpp
+CMakeFiles/Prog3.dir/Window.cpp.obj: C:/Users/jayce/COP3530/CrimeData/Window.cpp
 CMakeFiles/Prog3.dir/Window.cpp.obj: CMakeFiles/Prog3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Prog3.dir/Window.cpp.obj"
-	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Prog3.dir/Window.cpp.obj -MF CMakeFiles\Prog3.dir\Window.cpp.obj.d -o CMakeFiles\Prog3.dir\Window.cpp.obj -c "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\Window.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jayce\COP3530\CrimeData\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Prog3.dir/Window.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Prog3.dir/Window.cpp.obj -MF CMakeFiles\Prog3.dir\Window.cpp.obj.d -o CMakeFiles\Prog3.dir\Window.cpp.obj -c C:\Users\jayce\COP3530\CrimeData\Window.cpp
 
 CMakeFiles/Prog3.dir/Window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Prog3.dir/Window.cpp.i"
-	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\Window.cpp" > CMakeFiles\Prog3.dir\Window.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jayce\COP3530\CrimeData\Window.cpp > CMakeFiles\Prog3.dir\Window.cpp.i
 
 CMakeFiles/Prog3.dir/Window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Prog3.dir/Window.cpp.s"
-	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\Window.cpp" -o CMakeFiles\Prog3.dir\Window.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jayce\COP3530\CrimeData\Window.cpp -o CMakeFiles\Prog3.dir\Window.cpp.s
 
 CMakeFiles/Prog3.dir/StateWindow.cpp.obj: CMakeFiles/Prog3.dir/flags.make
 CMakeFiles/Prog3.dir/StateWindow.cpp.obj: CMakeFiles/Prog3.dir/includes_CXX.rsp
-CMakeFiles/Prog3.dir/StateWindow.cpp.obj: C:/Users/thoma/SCHOOL/Spring\ 24/CDA3101/FoodWasters/StateWindow.cpp
+CMakeFiles/Prog3.dir/StateWindow.cpp.obj: C:/Users/jayce/COP3530/CrimeData/StateWindow.cpp
 CMakeFiles/Prog3.dir/StateWindow.cpp.obj: CMakeFiles/Prog3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Prog3.dir/StateWindow.cpp.obj"
-	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Prog3.dir/StateWindow.cpp.obj -MF CMakeFiles\Prog3.dir\StateWindow.cpp.obj.d -o CMakeFiles\Prog3.dir\StateWindow.cpp.obj -c "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\StateWindow.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jayce\COP3530\CrimeData\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Prog3.dir/StateWindow.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Prog3.dir/StateWindow.cpp.obj -MF CMakeFiles\Prog3.dir\StateWindow.cpp.obj.d -o CMakeFiles\Prog3.dir\StateWindow.cpp.obj -c C:\Users\jayce\COP3530\CrimeData\StateWindow.cpp
 
 CMakeFiles/Prog3.dir/StateWindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Prog3.dir/StateWindow.cpp.i"
-	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\StateWindow.cpp" > CMakeFiles\Prog3.dir\StateWindow.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jayce\COP3530\CrimeData\StateWindow.cpp > CMakeFiles\Prog3.dir\StateWindow.cpp.i
 
 CMakeFiles/Prog3.dir/StateWindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Prog3.dir/StateWindow.cpp.s"
-	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\StateWindow.cpp" -o CMakeFiles\Prog3.dir\StateWindow.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jayce\COP3530\CrimeData\StateWindow.cpp -o CMakeFiles\Prog3.dir\StateWindow.cpp.s
 
 # Object files for target Prog3
 Prog3_OBJECTS = \
@@ -142,7 +142,7 @@ Prog3.exe: C:/SFML/lib/libFLAC.a
 Prog3.exe: CMakeFiles/Prog3.dir/linkLibs.rsp
 Prog3.exe: CMakeFiles/Prog3.dir/objects1.rsp
 Prog3.exe: CMakeFiles/Prog3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Prog3.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\jayce\COP3530\CrimeData\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Prog3.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Prog3.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -154,6 +154,6 @@ CMakeFiles/Prog3.dir/clean:
 .PHONY : CMakeFiles/Prog3.dir/clean
 
 CMakeFiles/Prog3.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters" "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters" "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\cmake-build-debug" "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\cmake-build-debug" "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\cmake-build-debug\CMakeFiles\Prog3.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\jayce\COP3530\CrimeData C:\Users\jayce\COP3530\CrimeData C:\Users\jayce\COP3530\CrimeData\cmake-build-debug C:\Users\jayce\COP3530\CrimeData\cmake-build-debug C:\Users\jayce\COP3530\CrimeData\cmake-build-debug\CMakeFiles\Prog3.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Prog3.dir/depend
 
