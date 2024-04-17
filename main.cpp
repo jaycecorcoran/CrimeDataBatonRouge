@@ -2,6 +2,7 @@
 #include <SFML/graphics.hpp>
 #include <iostream>
 #include "Window.h"
+#include "StateWindow.h"
 using namespace std;
 
 int main() {
@@ -28,6 +29,8 @@ int main() {
 
     TitleWindow titleWindow;
     titleWindow.run();
+
+
 
     return 0;
 }

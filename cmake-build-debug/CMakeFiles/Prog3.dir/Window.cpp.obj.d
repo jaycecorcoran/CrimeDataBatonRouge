@@ -1,6 +1,6 @@
 CMakeFiles/Prog3.dir/Window.cpp.obj: \
  C:\Users\thoma\SCHOOL\Spring\ 24\CDA3101\FoodWasters\Window.cpp \
- C:\Users\thoma\SCHOOL\Spring\ 24\CDA3101\FoodWasters\Window.h \
+ C:\Users\thoma\SCHOOL\Spring\ 24\CDA3101\FoodWasters\StateWindow.h \
  C:/SFML/include/SFML/Graphics.hpp C:/SFML/include/SFML/Window.hpp \
  C:/SFML/include/SFML/System.hpp C:/SFML/include/SFML/Config.hpp \
  C:/SFML/include/SFML/System/Clock.hpp \
@@ -243,4 +243,5 @@ CMakeFiles/Prog3.dir/Window.cpp.obj: \
  C:/SFML/include/SFML/Graphics/Sprite.hpp \
  C:/SFML/include/SFML/Graphics/Text.hpp \
  C:/SFML/include/SFML/Graphics/VertexBuffer.hpp \
+ C:\Users\thoma\SCHOOL\Spring\ 24\CDA3101\FoodWasters\Window.h \
  C:/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/iostream

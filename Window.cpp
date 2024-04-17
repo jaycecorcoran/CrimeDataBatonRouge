@@ -1,7 +1,7 @@
 //
 // Created by thoma on 4/15/2024.
 //
-
+#include "StateWindow.h"
 #include "Window.h"
 #include <iostream>
 
@@ -121,6 +121,15 @@ void TitleWindow::handleEvents() {
                     searchInput.setString(searchInput.getString() + static_cast<char>(event.text.unicode));
                 }
             }
+        } else if (event.type == sf::Event::KeyPressed) {
+            if (event.key.code == sf::Keyboard::Enter) {
+                // Open StateWindow with the entered string
+                std::string stateName = searchInput.getString();
+                if (!stateName.empty()) {
+                    StateWindow stateWindow(stateName);
+                    stateWindow.run();
+                }
+            }
         }
     }
 }
@@ -197,7 +206,6 @@ void TitleWindow::draw() {
         };
         window.draw(cursorLine, 2, sf::Lines);
     }
-
 
 
     window.display(); // Display the window contents

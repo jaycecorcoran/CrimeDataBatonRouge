@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/thoma/SCHOOL/Spring 24/CDA3101/FoodWasters/StateWindow.cpp" "CMakeFiles/Prog3.dir/StateWindow.cpp.obj" "gcc" "CMakeFiles/Prog3.dir/StateWindow.cpp.obj.d"
   "C:/Users/thoma/SCHOOL/Spring 24/CDA3101/FoodWasters/Window.cpp" "CMakeFiles/Prog3.dir/Window.cpp.obj" "gcc" "CMakeFiles/Prog3.dir/Window.cpp.obj.d"
   "C:/Users/thoma/SCHOOL/Spring 24/CDA3101/FoodWasters/main.cpp" "CMakeFiles/Prog3.dir/main.cpp.obj" "gcc" "CMakeFiles/Prog3.dir/main.cpp.obj.d"
   )
