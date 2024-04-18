@@ -9,6 +9,7 @@ int main() {
     cout << "hello" << endl;
     cout << "hey" << endl;
     cout << "test" << endl;
+    cout << "is this working" << endl;
     /*
     //SFML test from minesweeper project
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works");
