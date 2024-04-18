@@ -5,18 +5,14 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <utility> // For std::pair
+#include <sstream> // For std::stringstream
 using namespace csv2;
 
-CSVParser::CSVParser(const std::string& input_path, const std::string& output_path)
-        : input_file_path(input_path), output_file_path(output_path) {}
+CSVParser::CSVParser(const std::string& input_path)
+        : input_file_path(input_path) {}
 
-bool CSVParser::parse() {
-    std::ofstream out_file(output_file_path);
-    if (!out_file.is_open()) {
-        std::cerr << "Failed to open output file." << std::endl;
-        return false;
-    }
-
+bool CSVParser::parse(std::vector<std::pair<std::string, int>>& data) {
     Reader<delimiter<','>, quote_character<'"'>, first_row_is_header<true>> csv;
     if (csv.mmap(input_file_path)) {
         auto header = csv.header();
@@ -26,36 +22,37 @@ bool CSVParser::parse() {
         }
 
         // Find column indices based on header values
-        int date_col = -1, zip_col = -1, crime_cat_col = -1;
+        int zip_col = -1, crime_cat_col = -1;
         for (size_t i = 0; i < header_values.size(); ++i) {
-            if (header_values[i] == "date") date_col = i;
-            else if (header_values[i] == "zip_code") zip_col = i;
+            if (header_values[i] == "zip_code") zip_col = i;
             else if (header_values[i] == "crime_statute_category") crime_cat_col = i;
         }
 
         // Check if column indices were found
-        if (date_col == -1 || zip_col == -1 || crime_cat_col == -1) {
+        if (zip_col == -1 || crime_cat_col == -1) {
             std::cerr << "Could not find one or more required columns." << std::endl;
             return false;
         }
-
-        // Write header
-        out_file << "Date,Zip Code,Crime Statute Category\n";
 
         for (const auto &row : csv) {
             std::vector<std::string> values;
             for (const auto &cell : row) {
                 values.emplace_back(cell.read_view());
             }
-            // Write the required values if the row has enough cells
-            if (values.size() > std::max({date_col, zip_col, crime_cat_col})) {
-                out_file << values[date_col] << "," << values[zip_col] << "," << values[crime_cat_col] << "\n";
+            // Create the pair if the row has enough cells
+            if (values.size() > std::max(zip_col, crime_cat_col)) {
+                try {
+                    int zip_code = std::stoi(values[zip_col]);
+                    data.emplace_back(values[crime_cat_col], zip_code);
+                } catch (const std::invalid_argument& ia) {
+                    // Skip the row if zip code is not an integer
+                    continue;
+                }
             }
         }
+        return true;
     } else {
         std::cerr << "Failed to open the input CSV file." << std::endl;
         return false;
     }
-
-    out_file.close();
-    return true;
+}

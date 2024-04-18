@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\jayce\COP3530\CrimeData
+CMAKE_SOURCE_DIR = C:\Users\jayce\COP3530\CrimeDataBatonRouge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\jayce\COP3530\CrimeData\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\jayce\COP3530\CrimeDataBatonRouge\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jayce\COP3530\CrimeData\cmake-build-debug\CMakeFiles C:\Users\jayce\COP3530\CrimeData\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jayce\COP3530\CrimeDataBatonRouge\cmake-build-debug\CMakeFiles C:\Users\jayce\COP3530\CrimeDataBatonRouge\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jayce\COP3530\CrimeData\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jayce\COP3530\CrimeDataBatonRouge\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -127,6 +127,30 @@ Prog3: cmake_check_build_system
 Prog3/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/build
 .PHONY : Prog3/fast
+
+CSVParser.obj: CSVParser.cpp.obj
+.PHONY : CSVParser.obj
+
+# target to build an object file
+CSVParser.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/CSVParser.cpp.obj
+.PHONY : CSVParser.cpp.obj
+
+CSVParser.i: CSVParser.cpp.i
+.PHONY : CSVParser.i
+
+# target to preprocess a source file
+CSVParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/CSVParser.cpp.i
+.PHONY : CSVParser.cpp.i
+
+CSVParser.s: CSVParser.cpp.s
+.PHONY : CSVParser.s
+
+# target to generate assembly for a file
+CSVParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/CSVParser.cpp.s
+.PHONY : CSVParser.cpp.s
 
 StateWindow.obj: StateWindow.cpp.obj
 .PHONY : StateWindow.obj
@@ -209,6 +233,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Prog3
+	@echo ... CSVParser.obj
+	@echo ... CSVParser.i
+	@echo ... CSVParser.s
 	@echo ... StateWindow.obj
 	@echo ... StateWindow.i
 	@echo ... StateWindow.s

@@ -1,5 +1,5 @@
 CMakeFiles/Prog3.dir/main.cpp.obj: \
- C:\Users\jayce\COP3530\CrimeData\main.cpp \
+ C:\Users\jayce\COP3530\CrimeDataBatonRouge\main.cpp \
  C:/SFML/include/SFML/graphics.hpp C:/SFML/include/SFML/Window.hpp \
  C:/SFML/include/SFML/System.hpp C:/SFML/include/SFML/Config.hpp \
  C:/SFML/include/SFML/System/Clock.hpp \
@@ -243,6 +243,6 @@ CMakeFiles/Prog3.dir/main.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
- C:\Users\jayce\COP3530\CrimeData\Window.h \
+ C:\Users\jayce\COP3530\CrimeDataBatonRouge\Window.h \
  C:/SFML/include/SFML/Graphics.hpp \
- C:\Users\jayce\COP3530\CrimeData\StateWindow.h
+ C:\Users\jayce\COP3530\CrimeDataBatonRouge\StateWindow.h

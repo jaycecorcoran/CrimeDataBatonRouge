@@ -37,7 +37,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/SFML/lib/cmake/SFML/SFMLStaticTargets-debug.cmake"
   "C:/SFML/lib/cmake/SFML/SFMLStaticTargets-release.cmake"
   "C:/SFML/lib/cmake/SFML/SFMLStaticTargets.cmake"
-  "C:/Users/jayce/COP3530/CrimeData/CMakeLists.txt"
+  "C:/Users/jayce/COP3530/CrimeDataBatonRouge/CMakeLists.txt"
   "CMakeFiles/3.26.4/CMakeCCompiler.cmake"
   "CMakeFiles/3.26.4/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.26.4/CMakeRCCompiler.cmake"
