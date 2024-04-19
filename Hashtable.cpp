@@ -29,6 +29,7 @@ void Hashtable::insert(int zipcode, std::string crime) {
     if (hashzip == 0)
     {
         hashzip = zipcode;
+        zipmin = zipcode;
     }
     if (zipcode < hashzip) {
         if (zipcode < zipmin) {
@@ -78,9 +79,9 @@ std::vector < std::pair < std::string, int > > Hashtable::getTop5Zip(int zipcode
     std::sort(info.begin(), info.end(), [](auto &a, auto &b) {
         return a.second > b.second;
     });
-    std::vector < std::pair < std::string, int > > dupe;
+    std::vector < std::pair < std::string, int > > dupe(5);
     for (int i = 0; i < 5; i++) {
-        dupe[i] = std::move(info[i]);
+        dupe[i] = info[i];
     }
     return dupe;
 }
@@ -93,9 +94,9 @@ std::pair<int, std::vector <std::pair <std::string, int> > > Hashtable::top5(Zip
     std::sort(top.begin(), top.end(), [](auto &a, auto &b) {
         return a.second > b.second;
     });
-    std::vector<std::pair <std::string, int> > dupe;
+    std::vector<std::pair <std::string, int> > dupe(5);
     for (int i = 0; i < 5; i++) {
-        dupe[i] = std::move(top[i]);
+        dupe[i] = top[i];
     }
     return {s.Zipcode, dupe};
 }
@@ -112,6 +113,7 @@ std::vector<std::pair <int, std::vector <std::pair <std::string, int> > > > Hash
     for (int i = 0; i < 5; i++) {
         top.push_back(top5(holder[i].second));
     }
+    return top;
 }
 
 // this is for totaling the crimes in a given zipcode, accessed with the key, you get a zip and a crime count
@@ -127,7 +129,6 @@ int Hashtable::NumCrimes(int key) {
 
 // this function is basically gonna help the heap get made it is impractical to make the heap and fill it as the program runs
 // so instead I'm electing to build the heap using the processed information stored here
-// this outputs all the data needed for the heap to get working
 
 std::vector<std::pair<int, std::map<std::string, int> > > Hashtable::Heaphelper() {
     std::vector<std::pair<int, std::map<std::string, int> > > data;
