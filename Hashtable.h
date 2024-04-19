@@ -7,8 +7,8 @@
 #include <map>
 #include <vector>
 
-#ifndef PROJ3_LOCAL_HASHTABLE_H
-#define PROJ3_LOCAL_HASHTABLE_H
+#ifndef PROJ3_HASHTABLE_H
+#define PROJ3_HASHTABLE_H
 
 // these commments are for my groupmates as well as the graders I'll begin by talking about the variables!
 
@@ -56,25 +56,19 @@ public:
     void rehash(int);
     int getzip(int);
 
-    // next I have our grand assortment of accessor functions, getting info for a zipcode, getting the maxes, getting mins
+    // next I have our grand assortment of accessor functions, getting info for a zipcode, getting the maxes, etc
     // if you can commit it often or once, it'll come back in this data set
-
-    // this is the only accessor function atm that will use the zipcode to get information about an area
+    // this is the accessor function that will use the zipcode to get information about an area
 
     std::vector<std::pair<std::string, int> > getzipinfo(int);
 
-    // the rest of the accessors use the key to get the information
+    // now these functions are for the goal of getting the top 5 in a given area and then the top 5 of top 5
 
-    std::pair<std::string, int> getMax(int);
-    std::vector<std::pair<int, std::pair<std::string, int> > > getallMax();
-    std::pair<std::string, int> getMin(int);
-    std::vector<std::pair<int, std::pair<std::string, int> > > getallMin();
-    std::pair<int, int> getMaxByCrime(std::string);
-    std::pair<int, int> NumCrimes(int);
-    std::vector<std::pair<int, int> > NumCrimesAll();
-    int getSize();
+    std::vector <std::pair <std::string, int> > getTop5Zip(int);
+    std::pair<int, std::vector <std::pair <std::string, int> > > top5(ZipNode &s);
+    std::vector<std::pair <int, std::vector <std::pair <std::string, int> > > > getTop5();
+    int NumCrimes(int);
 
 };
 
-
-#endif //PROJ3_LOCAL_HASHTABLE_H
+#endif //PROJ3_HASHTABLE_H
