@@ -128,30 +128,6 @@ Prog3/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/build
 .PHONY : Prog3/fast
 
-StateWindow.obj: StateWindow.cpp.obj
-.PHONY : StateWindow.obj
-
-# target to build an object file
-StateWindow.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/StateWindow.cpp.obj
-.PHONY : StateWindow.cpp.obj
-
-StateWindow.i: StateWindow.cpp.i
-.PHONY : StateWindow.i
-
-# target to preprocess a source file
-StateWindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/StateWindow.cpp.i
-.PHONY : StateWindow.cpp.i
-
-StateWindow.s: StateWindow.cpp.s
-.PHONY : StateWindow.s
-
-# target to generate assembly for a file
-StateWindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/StateWindow.cpp.s
-.PHONY : StateWindow.cpp.s
-
 Window.obj: Window.cpp.obj
 .PHONY : Window.obj
 
@@ -175,6 +151,30 @@ Window.s: Window.cpp.s
 Window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/Window.cpp.s
 .PHONY : Window.cpp.s
+
+ZipWindow.obj: ZipWindow.cpp.obj
+.PHONY : ZipWindow.obj
+
+# target to build an object file
+ZipWindow.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/ZipWindow.cpp.obj
+.PHONY : ZipWindow.cpp.obj
+
+ZipWindow.i: ZipWindow.cpp.i
+.PHONY : ZipWindow.i
+
+# target to preprocess a source file
+ZipWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/ZipWindow.cpp.i
+.PHONY : ZipWindow.cpp.i
+
+ZipWindow.s: ZipWindow.cpp.s
+.PHONY : ZipWindow.s
+
+# target to generate assembly for a file
+ZipWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/ZipWindow.cpp.s
+.PHONY : ZipWindow.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
@@ -209,12 +209,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Prog3
-	@echo ... StateWindow.obj
-	@echo ... StateWindow.i
-	@echo ... StateWindow.s
 	@echo ... Window.obj
 	@echo ... Window.i
 	@echo ... Window.s
+	@echo ... ZipWindow.obj
+	@echo ... ZipWindow.i
+	@echo ... ZipWindow.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

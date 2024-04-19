@@ -98,33 +98,33 @@ CMakeFiles/Prog3.dir/Window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Prog3.dir/Window.cpp.s"
 	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\Window.cpp" -o CMakeFiles\Prog3.dir\Window.cpp.s
 
-CMakeFiles/Prog3.dir/StateWindow.cpp.obj: CMakeFiles/Prog3.dir/flags.make
-CMakeFiles/Prog3.dir/StateWindow.cpp.obj: CMakeFiles/Prog3.dir/includes_CXX.rsp
-CMakeFiles/Prog3.dir/StateWindow.cpp.obj: C:/Users/thoma/SCHOOL/Spring\ 24/CDA3101/FoodWasters/StateWindow.cpp
-CMakeFiles/Prog3.dir/StateWindow.cpp.obj: CMakeFiles/Prog3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Prog3.dir/StateWindow.cpp.obj"
-	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Prog3.dir/StateWindow.cpp.obj -MF CMakeFiles\Prog3.dir\StateWindow.cpp.obj.d -o CMakeFiles\Prog3.dir\StateWindow.cpp.obj -c "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\StateWindow.cpp"
+CMakeFiles/Prog3.dir/ZipWindow.cpp.obj: CMakeFiles/Prog3.dir/flags.make
+CMakeFiles/Prog3.dir/ZipWindow.cpp.obj: CMakeFiles/Prog3.dir/includes_CXX.rsp
+CMakeFiles/Prog3.dir/ZipWindow.cpp.obj: C:/Users/thoma/SCHOOL/Spring\ 24/CDA3101/FoodWasters/ZipWindow.cpp
+CMakeFiles/Prog3.dir/ZipWindow.cpp.obj: CMakeFiles/Prog3.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Prog3.dir/ZipWindow.cpp.obj"
+	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Prog3.dir/ZipWindow.cpp.obj -MF CMakeFiles\Prog3.dir\ZipWindow.cpp.obj.d -o CMakeFiles\Prog3.dir\ZipWindow.cpp.obj -c "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\ZipWindow.cpp"
 
-CMakeFiles/Prog3.dir/StateWindow.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Prog3.dir/StateWindow.cpp.i"
-	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\StateWindow.cpp" > CMakeFiles\Prog3.dir\StateWindow.cpp.i
+CMakeFiles/Prog3.dir/ZipWindow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Prog3.dir/ZipWindow.cpp.i"
+	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\ZipWindow.cpp" > CMakeFiles\Prog3.dir\ZipWindow.cpp.i
 
-CMakeFiles/Prog3.dir/StateWindow.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Prog3.dir/StateWindow.cpp.s"
-	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\StateWindow.cpp" -o CMakeFiles\Prog3.dir\StateWindow.cpp.s
+CMakeFiles/Prog3.dir/ZipWindow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Prog3.dir/ZipWindow.cpp.s"
+	C:\mingw64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\thoma\SCHOOL\Spring 24\CDA3101\FoodWasters\ZipWindow.cpp" -o CMakeFiles\Prog3.dir\ZipWindow.cpp.s
 
 # Object files for target Prog3
 Prog3_OBJECTS = \
 "CMakeFiles/Prog3.dir/main.cpp.obj" \
 "CMakeFiles/Prog3.dir/Window.cpp.obj" \
-"CMakeFiles/Prog3.dir/StateWindow.cpp.obj"
+"CMakeFiles/Prog3.dir/ZipWindow.cpp.obj"
 
 # External object files for target Prog3
 Prog3_EXTERNAL_OBJECTS =
 
 Prog3.exe: CMakeFiles/Prog3.dir/main.cpp.obj
 Prog3.exe: CMakeFiles/Prog3.dir/Window.cpp.obj
-Prog3.exe: CMakeFiles/Prog3.dir/StateWindow.cpp.obj
+Prog3.exe: CMakeFiles/Prog3.dir/ZipWindow.cpp.obj
 Prog3.exe: CMakeFiles/Prog3.dir/build.make
 Prog3.exe: C:/SFML/lib/libsfml-system-s-d.a
 Prog3.exe: C:/SFML/lib/libsfml-window-s-d.a

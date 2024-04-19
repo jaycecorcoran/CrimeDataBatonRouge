@@ -6,8 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(Prog3 main.cpp
         Window.cpp
         Window.h
-        StateWindow.h
-        StateWindow.cpp)
+        ZipWindow.h
+        ZipWindow.cpp)
 
 set(SFML_STATIC_LIBRARIES TRUE)
 set(SFML_DIR C:/SFML/lib/cmake/SFML)

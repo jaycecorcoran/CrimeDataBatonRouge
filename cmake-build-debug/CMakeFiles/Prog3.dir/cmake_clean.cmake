@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Prog3.dir/StateWindow.cpp.obj"
-  "CMakeFiles/Prog3.dir/StateWindow.cpp.obj.d"
   "CMakeFiles/Prog3.dir/Window.cpp.obj"
   "CMakeFiles/Prog3.dir/Window.cpp.obj.d"
+  "CMakeFiles/Prog3.dir/ZipWindow.cpp.obj"
+  "CMakeFiles/Prog3.dir/ZipWindow.cpp.obj.d"
   "CMakeFiles/Prog3.dir/main.cpp.obj"
   "CMakeFiles/Prog3.dir/main.cpp.obj.d"
   "Prog3.exe"

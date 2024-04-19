@@ -1,6 +1,6 @@
 CMakeFiles/Prog3.dir/Window.cpp.obj: \
  C:\Users\thoma\SCHOOL\Spring\ 24\CDA3101\FoodWasters\Window.cpp \
- C:\Users\thoma\SCHOOL\Spring\ 24\CDA3101\FoodWasters\StateWindow.h \
+ C:\Users\thoma\SCHOOL\Spring\ 24\CDA3101\FoodWasters\ZipWindow.h \
  C:/SFML/include/SFML/Graphics.hpp C:/SFML/include/SFML/Window.hpp \
  C:/SFML/include/SFML/System.hpp C:/SFML/include/SFML/Config.hpp \
  C:/SFML/include/SFML/System/Clock.hpp \

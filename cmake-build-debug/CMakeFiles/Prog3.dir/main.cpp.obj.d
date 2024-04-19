@@ -245,4 +245,4 @@ CMakeFiles/Prog3.dir/main.cpp.obj: \
  C:/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/iostream \
  C:\Users\thoma\SCHOOL\Spring\ 24\CDA3101\FoodWasters\Window.h \
  C:/SFML/include/SFML/Graphics.hpp \
- C:\Users\thoma\SCHOOL\Spring\ 24\CDA3101\FoodWasters\StateWindow.h
+ C:\Users\thoma\SCHOOL\Spring\ 24\CDA3101\FoodWasters\ZipWindow.h
