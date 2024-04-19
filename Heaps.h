@@ -2,55 +2,54 @@
 // Created by Caleb Jackson on 4/17/24.
 //
 
-#ifndef PROJ3_LOCAL_HEAPS_H
-#define PROJ3_LOCAL_HEAPS_H
+#ifndef PROJ3_HEAPS_H
+#define PROJ3_HEAPS_H
 
 #include <iostream>
+#include <queue>
+#include <map>
 #include <vector>
-#include <string>
 
-class Max_Heap {
-
-    // WIP
-
-};
-
-class Min_Heap {
-
-    // at the moment this is the min heap which will try to store the least crimes at the root
+class heap {
 
 private:
 
-    // for this it will take processed data from the hashtable and make a count of crimes and zipcodes
-    // then from there I create the tree with these two parameters and store based on count
+    // the first part of the project is using a node similar to the hashtable to store the points
 
     struct Node {
-        int Count;
         int zipcode;
+        std::map<std::string, int> Crimes;
     };
-    Node *arr;
-    int capacity;
-    int size;
+    // a comparison operator I need to actually make the priority queue work since I have weird types!
+
+    struct Comparison {
+        constexpr bool operator() ( std::pair<int, Node> const& a, std::pair<int, Node> const& b) const noexcept
+        {
+            return a.first < b.first;
+        }
+    };
+
+    // now for the actual max heap it'll work based on the count size and have a node attached
+
+    std::priority_queue< std::pair<int, Node>, std::vector<std::pair<int, Node> >, Comparison > map;
 
 public:
 
-    // so we have a constructor which is going to hopefully use the number of zipcodes
-    // then we have some parent, left, right functions to help traverse
-    // finally, some extractions some insertion
+    // so this num crimes function is to basically tally up the items in the map
 
-    Min_Heap(int);
-    void MinHeapify(int);
-    int parent(int);
-    int left(int);
-    int right(int);
+    int numCrimes(std::map<std::string, int>);
 
-    // important to note that <int, int> is basically <Count, Zipcode>
+    // and our insert is for inserting items into the max heap
 
-    std::pair<int, int> extractMin();
-    std::pair<int, int> getMin();
-    void insertKey(int, int);
+    void insert(int, std::map<std::string, int>);
+
+    // now this all is for getting our data and we are going to access it in two ways, listing the top 5 in all
+    // and listing the top 5 in one given zip
+
+    std::vector <std::pair <std::string, int> > getTop5Zip(int);
+    std::pair<int, std::vector <std::pair <std::string, int> > > top5(heap::Node &s);
+    std::vector<std::pair <int, std::vector <std::pair <std::string, int> > > > getTop5();
 
 };
 
-
-#endif //PROJ3_LOCAL_HEAPS_H
+#endif //PROJ3_HEAPS_H
