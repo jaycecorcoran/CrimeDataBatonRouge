@@ -15,14 +15,20 @@ public:
 private:
     sf::RenderWindow window;
     sf::Font font;
-    sf::RectangleShape button1;
-    sf::RectangleShape button2;
-    sf::Texture buttonTexture;
-    sf::Text buttonText1;
-    sf::Text buttonText2;
+    std::string zipCode; // New member variable to hold the zip code
+    sf::Text titleText;
+    sf::Text commonCrimesText;
+    sf::Texture backgroundImageTexture;
+    sf::Sprite backgroundImage;
+    std::vector<sf::Text> crimeTexts;
 
     void handleEvents();
     void draw();
+    void loadBackgroundImage();
+    void loadFont();
+    void setupTitleText();
+    void setupCommonCrimesText();
+    void setupCrimeTexts();
 };
 
 #endif //PROG3_ZIPWINDOW_H

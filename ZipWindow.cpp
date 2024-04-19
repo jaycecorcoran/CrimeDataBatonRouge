@@ -5,37 +5,12 @@
 #include "ZipWindow.h"
 #include <iostream>
 
-ZipWindow::ZipWindow(const std::string& zipCode) : window(sf::VideoMode(1200, 900), zipCode + " Data Visualization") {
-    if (!font.loadFromFile("Lato-Black.ttf")) {
-        std::cerr << "Failed to load font" << std::endl;
-    }
-    if (!buttonTexture.loadFromFile("tile_hidden.png")) {
-        std::cerr << "Failed to load button texture";
-    }
-
-    // Set up buttons
-    button1.setSize(sf::Vector2f(200, 60));
-    button1.setTexture(&buttonTexture);
-    button1.setPosition(300, 800);
-
-    button2.setSize(sf::Vector2f(200, 60));
-    button2.setTexture(&buttonTexture);
-    button2.setPosition(700, 800);
-
-    // Set up button text
-    buttonText1.setFont(font);
-    buttonText1.setString("Graph 1");
-    buttonText1.setCharacterSize(24);
-    buttonText1.setFillColor(sf::Color::Black);
-    sf::FloatRect textBounds1 = buttonText1.getLocalBounds();
-    buttonText1.setPosition(button1.getPosition().x + (button1.getSize().x - textBounds1.width) / 2, button1.getPosition().y + (button1.getSize().y - textBounds1.height) / 2);
-
-    buttonText2.setFont(font);
-    buttonText2.setString("Graph 2");
-    buttonText2.setCharacterSize(24);
-    buttonText2.setFillColor(sf::Color::Black);
-    sf::FloatRect textBounds2 = buttonText2.getLocalBounds();
-    buttonText2.setPosition(button2.getPosition().x + (button2.getSize().x - textBounds2.width) / 2, button2.getPosition().y + (button2.getSize().y - textBounds2.height) / 2);
+ZipWindow::ZipWindow(const std::string& zipCode) : window(sf::VideoMode(1200, 900), zipCode + " Data Visualization"), zipCode(zipCode) {
+    loadFont();
+    loadBackgroundImage();
+    setupTitleText();
+    setupCommonCrimesText();
+    setupCrimeTexts();
 }
 
 void ZipWindow::run() {
@@ -57,11 +32,71 @@ void ZipWindow::handleEvents() {
 void ZipWindow::draw() {
     window.clear(sf::Color(255, 165, 0)); // Orange background
 
-    // Draw buttons and button text
-    window.draw(button1);
-    window.draw(button2);
-    window.draw(buttonText1);
-    window.draw(buttonText2);
+    // Draw background image
+    backgroundImage.setScale(0.55f, 0.55f);
+    backgroundImage.setPosition((window.getSize().x - backgroundImage.getLocalBounds().width * 0.55f) / 2.f, 100.f);
+    window.draw(backgroundImage);
+
+    // Draw title text
+    window.draw(titleText);
+
+    // Draw common crimes text
+    window.draw(commonCrimesText);
+
+    // Draw crime texts
+    for (const auto& text : crimeTexts) {
+        window.draw(text);
+    }
 
     window.display();
 }
+
+void ZipWindow::loadBackgroundImage() {
+    if (!backgroundImageTexture.loadFromFile("BatonRouge.jpg")) {
+        std::cerr << "Failed to load background image" << std::endl;
+    }
+    backgroundImage.setTexture(backgroundImageTexture);
+
+}
+
+void ZipWindow::loadFont() {
+    if (!font.loadFromFile("Lato-Black.ttf")) {
+        std::cerr << "Failed to load font" << std::endl;
+    }
+}
+
+void ZipWindow::setupTitleText() {
+    titleText.setFont(font);
+    titleText.setString("Data for Zip Code " + zipCode);
+    titleText.setCharacterSize(36);
+    titleText.setFillColor(sf::Color::Black);
+    sf::FloatRect textBounds = titleText.getLocalBounds();
+    titleText.setPosition((window.getSize().x - textBounds.width) / 2.f, 20);
+}
+
+void ZipWindow::setupCommonCrimesText() {
+    commonCrimesText.setFont(font);
+    commonCrimesText.setString("5 Most Common Crimes in " + zipCode + ":");
+    commonCrimesText.setCharacterSize(30);
+    commonCrimesText.setFillColor(sf::Color::Black);
+    sf::FloatRect textBounds = commonCrimesText.getLocalBounds();
+    commonCrimesText.setPosition((window.getSize().x - textBounds.width) / 2.f, 550.f);
+}
+
+void ZipWindow::setupCrimeTexts() {
+    // Set up crime texts
+    const std::vector<std::string> crimeNames = {"Crime 1", "Crime 2", "Crime 3", "Crime 4", "Crime 5"};
+    const float startY = 610.f;
+    const float lineHeight = 40.f;
+    for (size_t i = 0; i < crimeNames.size(); ++i) {
+        sf::Text crimeText;
+        crimeText.setFont(font);
+        crimeText.setString(std::to_string(i + 1) + ". " + crimeNames[i]);
+        crimeText.setCharacterSize(24);
+        crimeText.setFillColor(sf::Color::Black);
+        crimeText.setPosition(450.f, startY + i * lineHeight);
+        crimeTexts.push_back(crimeText);
+    }
+}
+
+

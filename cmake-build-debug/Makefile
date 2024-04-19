@@ -128,6 +128,30 @@ Prog3/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/build
 .PHONY : Prog3/fast
 
+CityWindow.obj: CityWindow.cpp.obj
+.PHONY : CityWindow.obj
+
+# target to build an object file
+CityWindow.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/CityWindow.cpp.obj
+.PHONY : CityWindow.cpp.obj
+
+CityWindow.i: CityWindow.cpp.i
+.PHONY : CityWindow.i
+
+# target to preprocess a source file
+CityWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/CityWindow.cpp.i
+.PHONY : CityWindow.cpp.i
+
+CityWindow.s: CityWindow.cpp.s
+.PHONY : CityWindow.s
+
+# target to generate assembly for a file
+CityWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/CityWindow.cpp.s
+.PHONY : CityWindow.cpp.s
+
 Window.obj: Window.cpp.obj
 .PHONY : Window.obj
 
@@ -209,6 +233,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Prog3
+	@echo ... CityWindow.obj
+	@echo ... CityWindow.i
+	@echo ... CityWindow.s
 	@echo ... Window.obj
 	@echo ... Window.i
 	@echo ... Window.s

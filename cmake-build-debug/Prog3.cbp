@@ -86,6 +86,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/thoma/SCHOOL/Spring 24/CDA3101/FoodWasters/CityWindow.cpp">
+			<Option target="Prog3"/>
+		</Unit>
+		<Unit filename="C:/Users/thoma/SCHOOL/Spring 24/CDA3101/FoodWasters/CityWindow.h">
+			<Option target="Prog3"/>
+		</Unit>
 		<Unit filename="C:/Users/thoma/SCHOOL/Spring 24/CDA3101/FoodWasters/Window.cpp">
 			<Option target="Prog3"/>
 		</Unit>

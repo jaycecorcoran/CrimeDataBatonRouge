@@ -244,4 +244,8 @@ CMakeFiles/Prog3.dir/Window.cpp.obj: \
  C:/SFML/include/SFML/Graphics/Text.hpp \
  C:/SFML/include/SFML/Graphics/VertexBuffer.hpp \
  C:\Users\thoma\SCHOOL\Spring\ 24\CDA3101\FoodWasters\Window.h \
+ C:/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/set \
+ C:/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_set.h \
+ C:/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/bits/stl_multiset.h \
+ C:\Users\thoma\SCHOOL\Spring\ 24\CDA3101\FoodWasters\CityWindow.h \
  C:/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/iostream

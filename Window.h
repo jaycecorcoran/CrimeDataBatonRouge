@@ -6,6 +6,8 @@
 #define PROG3_WINDOW_H
 
 #include <SFML/Graphics.hpp>
+#include <set>
+#include "CityWindow.h"
 
 class Window {
 public:
@@ -37,6 +39,13 @@ private:
 
     sf::Text zipTextLabel;
     sf::Text cityTextLabel;
+
+    std::set<std::string> validZipCodes;
+    sf::Text errorMessage;
+
+    bool displayErrorMessage;
+
+    bool isValidZipCode(const std::string& zipCode) const;
 
     void handleEvents();
     void draw();

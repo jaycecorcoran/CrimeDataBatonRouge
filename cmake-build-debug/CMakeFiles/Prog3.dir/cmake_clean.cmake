@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Prog3.dir/CityWindow.cpp.obj"
+  "CMakeFiles/Prog3.dir/CityWindow.cpp.obj.d"
   "CMakeFiles/Prog3.dir/Window.cpp.obj"
   "CMakeFiles/Prog3.dir/Window.cpp.obj.d"
   "CMakeFiles/Prog3.dir/ZipWindow.cpp.obj"
