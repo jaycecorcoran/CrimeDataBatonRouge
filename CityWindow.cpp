@@ -91,7 +91,7 @@ void CityWindow::setupCrimeRateRows() {
         //int rate1 = hashtable access
     }
 
-
+    //Then we will get the data into the vector to list it
 
 
 
