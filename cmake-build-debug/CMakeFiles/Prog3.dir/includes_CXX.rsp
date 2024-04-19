@@ -1,1 +1,1 @@
--IC:/SFML/include/SFML -isystem C:/SFML/include
+-IC:/SFML/include/SFML -IC:/csv2/include/csv2 -isystem C:/SFML/include

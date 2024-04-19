@@ -6,12 +6,13 @@
 
 #include <string>
 #include <vector>
-#include "csv2/include/csv2/reader.hpp"
+//#include "csv2/include/csv2/reader.hpp"
+#include "csv2/single_include/csv2/csv2.hpp"
 
 class CSVParser {
 public:
     CSVParser(const std::string& input_path);
-    bool parse(std::vector<std::pair<std::string, int>>& data);
+    bool parse(std::vector<std::pair<int, std::string>>& data);
 
 private:
     std::string input_file_path;

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Prog3.dir/CSVParser.cpp.obj"
+  "CMakeFiles/Prog3.dir/CSVParser.cpp.obj.d"
   "CMakeFiles/Prog3.dir/StateWindow.cpp.obj"
   "CMakeFiles/Prog3.dir/StateWindow.cpp.obj.d"
   "CMakeFiles/Prog3.dir/Window.cpp.obj"

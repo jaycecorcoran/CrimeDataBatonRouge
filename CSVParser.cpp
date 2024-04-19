@@ -12,7 +12,7 @@ using namespace csv2;
 CSVParser::CSVParser(const std::string& input_path)
         : input_file_path(input_path) {}
 
-bool CSVParser::parse(std::vector<std::pair<std::string, int>>& data) {
+bool CSVParser::parse(std::vector<std::pair<int, std::string>>& data) {
     Reader<delimiter<','>, quote_character<'"'>, first_row_is_header<true>> csv;
     if (csv.mmap(input_file_path)) {
         auto header = csv.header();
@@ -22,10 +22,12 @@ bool CSVParser::parse(std::vector<std::pair<std::string, int>>& data) {
         }
 
         // Find column indices based on header values
-        int zip_col = -1, crime_cat_col = -1;
+        int zip_col = 0, crime_cat_col = 1;
         for (size_t i = 0; i < header_values.size(); ++i) {
-            if (header_values[i] == "zip_code") zip_col = i;
-            else if (header_values[i] == "crime_statute_category") crime_cat_col = i;
+            //std::cout << i << std::endl;
+            //std::cout << header_values.size() << std::endl;
+            if (header_values[i] == "ZIP CODE") zip_col = i;
+            else if (header_values[i] == "STATUTE CATEGORY") crime_cat_col = i;
         }
 
         // Check if column indices were found
@@ -43,7 +45,7 @@ bool CSVParser::parse(std::vector<std::pair<std::string, int>>& data) {
             if (values.size() > std::max(zip_col, crime_cat_col)) {
                 try {
                     int zip_code = std::stoi(values[zip_col]);
-                    data.emplace_back(values[crime_cat_col], zip_code);
+                    data.emplace_back(zip_code, values[crime_cat_col]);
                 } catch (const std::invalid_argument& ia) {
                     // Skip the row if zip code is not an integer
                     continue;

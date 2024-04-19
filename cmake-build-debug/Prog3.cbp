@@ -110,6 +110,15 @@
 		<Unit filename="C:/Users/jayce/COP3530/CrimeDataBatonRouge/Window.h">
 			<Option target="Prog3"/>
 		</Unit>
+		<Unit filename="C:/Users/jayce/COP3530/CrimeDataBatonRouge/csv2/include/csv2/mio.hpp">
+			<Option target="Prog3"/>
+		</Unit>
+		<Unit filename="C:/Users/jayce/COP3530/CrimeDataBatonRouge/csv2/include/csv2/parameters.hpp">
+			<Option target="Prog3"/>
+		</Unit>
+		<Unit filename="C:/Users/jayce/COP3530/CrimeDataBatonRouge/csv2/single_include/csv2/csv2.hpp">
+			<Option target="Prog3"/>
+		</Unit>
 		<Unit filename="C:/Users/jayce/COP3530/CrimeDataBatonRouge/main.cpp">
 			<Option target="Prog3"/>
 		</Unit>
