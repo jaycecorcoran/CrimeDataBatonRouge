@@ -124,3 +124,15 @@ int Hashtable::NumCrimes(int key) {
     }
     return count;
 }
+
+// this function is basically gonna help the heap get made it is impractical to make the heap and fill it as the program runs
+// so instead I'm electing to build the heap using the processed information stored here
+// this outputs all the data needed for the heap to get working
+
+std::vector<std::pair<int, std::map<std::string, int> > > Hashtable::Heaphelper() {
+    std::vector<std::pair<int, std::map<std::string, int> > > data;
+    for (auto items : zipcodes) {
+        data.push_back({items.second.Zipcode, items.second.Crimes});
+    }
+    return data;
+};
