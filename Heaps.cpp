@@ -40,9 +40,9 @@ std::vector <std::pair <std::string, int> > heap::getTop5Zip (int zipcode) {
     std::sort(info.begin(), info.end(), [](auto &a, auto &b) {
         return a.second > b.second;
     });
-    std::vector<std::pair<std::string, int> > dupe;
+    std::vector<std::pair<std::string, int> > dupe(5);
     for (int i = 0; i < 5; i++) {
-        dupe[i] = std::move(info[i]);
+        dupe[i] = info[i];
     }
     return dupe;
 }
@@ -55,9 +55,9 @@ std::pair<int, std::vector <std::pair <std::string, int> > > heap::top5(heap::No
     std::sort(info.begin(), info.end(), [](auto &a, auto &b) {
         return a.second > b.second;
     });
-    std::vector<std::pair<std::string, int> > dupe;
+    std::vector<std::pair<std::string, int> > dupe(5);
     for (int i = 0; i < 5; i++) {
-        dupe[i] = std::move(info[i]);
+        dupe[i] = info[i];
     }
     return {s.zipcode, dupe};
 }
