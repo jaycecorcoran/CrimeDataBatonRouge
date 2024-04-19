@@ -69,6 +69,8 @@ public:
     std::vector<std::pair <int, std::vector <std::pair <std::string, int> > > > getTop5();
     int NumCrimes(int);
 
+    std::vector<std::pair<int, std::map<std::string, int> > > Heaphelper();
+
 };
 
 #endif //PROJ3_HASHTABLE_H
