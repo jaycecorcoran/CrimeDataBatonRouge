@@ -14,8 +14,10 @@ include_directories("C:/SFML/include/SFML" "C:/csv2/include/csv2")
 add_executable(Prog3 main.cpp
         Window.cpp
         Window.h
-        StateWindow.h
-        StateWindow.cpp
+        ZipWindow.h
+        ZipWindow.cpp
+        CityWindow.cpp
+        CityWindow.h
         CSVParser.h
         CSVParser.cpp
         csv2/include/csv2/mio.hpp

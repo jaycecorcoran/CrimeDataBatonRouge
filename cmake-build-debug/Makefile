@@ -152,29 +152,29 @@ CSVParser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/CSVParser.cpp.s
 .PHONY : CSVParser.cpp.s
 
-StateWindow.obj: StateWindow.cpp.obj
-.PHONY : StateWindow.obj
+CityWindow.obj: CityWindow.cpp.obj
+.PHONY : CityWindow.obj
 
 # target to build an object file
-StateWindow.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/StateWindow.cpp.obj
-.PHONY : StateWindow.cpp.obj
+CityWindow.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/CityWindow.cpp.obj
+.PHONY : CityWindow.cpp.obj
 
-StateWindow.i: StateWindow.cpp.i
-.PHONY : StateWindow.i
+CityWindow.i: CityWindow.cpp.i
+.PHONY : CityWindow.i
 
 # target to preprocess a source file
-StateWindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/StateWindow.cpp.i
-.PHONY : StateWindow.cpp.i
+CityWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/CityWindow.cpp.i
+.PHONY : CityWindow.cpp.i
 
-StateWindow.s: StateWindow.cpp.s
-.PHONY : StateWindow.s
+CityWindow.s: CityWindow.cpp.s
+.PHONY : CityWindow.s
 
 # target to generate assembly for a file
-StateWindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/StateWindow.cpp.s
-.PHONY : StateWindow.cpp.s
+CityWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/CityWindow.cpp.s
+.PHONY : CityWindow.cpp.s
 
 Window.obj: Window.cpp.obj
 .PHONY : Window.obj
@@ -199,6 +199,30 @@ Window.s: Window.cpp.s
 Window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/Window.cpp.s
 .PHONY : Window.cpp.s
+
+ZipWindow.obj: ZipWindow.cpp.obj
+.PHONY : ZipWindow.obj
+
+# target to build an object file
+ZipWindow.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/ZipWindow.cpp.obj
+.PHONY : ZipWindow.cpp.obj
+
+ZipWindow.i: ZipWindow.cpp.i
+.PHONY : ZipWindow.i
+
+# target to preprocess a source file
+ZipWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/ZipWindow.cpp.i
+.PHONY : ZipWindow.cpp.i
+
+ZipWindow.s: ZipWindow.cpp.s
+.PHONY : ZipWindow.s
+
+# target to generate assembly for a file
+ZipWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Prog3.dir\build.make CMakeFiles/Prog3.dir/ZipWindow.cpp.s
+.PHONY : ZipWindow.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
@@ -236,12 +260,15 @@ help:
 	@echo ... CSVParser.obj
 	@echo ... CSVParser.i
 	@echo ... CSVParser.s
-	@echo ... StateWindow.obj
-	@echo ... StateWindow.i
-	@echo ... StateWindow.s
+	@echo ... CityWindow.obj
+	@echo ... CityWindow.i
+	@echo ... CityWindow.s
 	@echo ... Window.obj
 	@echo ... Window.i
 	@echo ... Window.s
+	@echo ... ZipWindow.obj
+	@echo ... ZipWindow.i
+	@echo ... ZipWindow.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

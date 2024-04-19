@@ -98,26 +98,41 @@ CMakeFiles/Prog3.dir/Window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Prog3.dir/Window.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jayce\COP3530\CrimeDataBatonRouge\Window.cpp -o CMakeFiles\Prog3.dir\Window.cpp.s
 
-CMakeFiles/Prog3.dir/StateWindow.cpp.obj: CMakeFiles/Prog3.dir/flags.make
-CMakeFiles/Prog3.dir/StateWindow.cpp.obj: CMakeFiles/Prog3.dir/includes_CXX.rsp
-CMakeFiles/Prog3.dir/StateWindow.cpp.obj: C:/Users/jayce/COP3530/CrimeDataBatonRouge/StateWindow.cpp
-CMakeFiles/Prog3.dir/StateWindow.cpp.obj: CMakeFiles/Prog3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jayce\COP3530\CrimeDataBatonRouge\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Prog3.dir/StateWindow.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Prog3.dir/StateWindow.cpp.obj -MF CMakeFiles\Prog3.dir\StateWindow.cpp.obj.d -o CMakeFiles\Prog3.dir\StateWindow.cpp.obj -c C:\Users\jayce\COP3530\CrimeDataBatonRouge\StateWindow.cpp
+CMakeFiles/Prog3.dir/ZipWindow.cpp.obj: CMakeFiles/Prog3.dir/flags.make
+CMakeFiles/Prog3.dir/ZipWindow.cpp.obj: CMakeFiles/Prog3.dir/includes_CXX.rsp
+CMakeFiles/Prog3.dir/ZipWindow.cpp.obj: C:/Users/jayce/COP3530/CrimeDataBatonRouge/ZipWindow.cpp
+CMakeFiles/Prog3.dir/ZipWindow.cpp.obj: CMakeFiles/Prog3.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jayce\COP3530\CrimeDataBatonRouge\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Prog3.dir/ZipWindow.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Prog3.dir/ZipWindow.cpp.obj -MF CMakeFiles\Prog3.dir\ZipWindow.cpp.obj.d -o CMakeFiles\Prog3.dir\ZipWindow.cpp.obj -c C:\Users\jayce\COP3530\CrimeDataBatonRouge\ZipWindow.cpp
 
-CMakeFiles/Prog3.dir/StateWindow.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Prog3.dir/StateWindow.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jayce\COP3530\CrimeDataBatonRouge\StateWindow.cpp > CMakeFiles\Prog3.dir\StateWindow.cpp.i
+CMakeFiles/Prog3.dir/ZipWindow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Prog3.dir/ZipWindow.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jayce\COP3530\CrimeDataBatonRouge\ZipWindow.cpp > CMakeFiles\Prog3.dir\ZipWindow.cpp.i
 
-CMakeFiles/Prog3.dir/StateWindow.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Prog3.dir/StateWindow.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jayce\COP3530\CrimeDataBatonRouge\StateWindow.cpp -o CMakeFiles\Prog3.dir\StateWindow.cpp.s
+CMakeFiles/Prog3.dir/ZipWindow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Prog3.dir/ZipWindow.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jayce\COP3530\CrimeDataBatonRouge\ZipWindow.cpp -o CMakeFiles\Prog3.dir\ZipWindow.cpp.s
+
+CMakeFiles/Prog3.dir/CityWindow.cpp.obj: CMakeFiles/Prog3.dir/flags.make
+CMakeFiles/Prog3.dir/CityWindow.cpp.obj: CMakeFiles/Prog3.dir/includes_CXX.rsp
+CMakeFiles/Prog3.dir/CityWindow.cpp.obj: C:/Users/jayce/COP3530/CrimeDataBatonRouge/CityWindow.cpp
+CMakeFiles/Prog3.dir/CityWindow.cpp.obj: CMakeFiles/Prog3.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jayce\COP3530\CrimeDataBatonRouge\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Prog3.dir/CityWindow.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Prog3.dir/CityWindow.cpp.obj -MF CMakeFiles\Prog3.dir\CityWindow.cpp.obj.d -o CMakeFiles\Prog3.dir\CityWindow.cpp.obj -c C:\Users\jayce\COP3530\CrimeDataBatonRouge\CityWindow.cpp
+
+CMakeFiles/Prog3.dir/CityWindow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Prog3.dir/CityWindow.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jayce\COP3530\CrimeDataBatonRouge\CityWindow.cpp > CMakeFiles\Prog3.dir\CityWindow.cpp.i
+
+CMakeFiles/Prog3.dir/CityWindow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Prog3.dir/CityWindow.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jayce\COP3530\CrimeDataBatonRouge\CityWindow.cpp -o CMakeFiles\Prog3.dir\CityWindow.cpp.s
 
 CMakeFiles/Prog3.dir/CSVParser.cpp.obj: CMakeFiles/Prog3.dir/flags.make
 CMakeFiles/Prog3.dir/CSVParser.cpp.obj: CMakeFiles/Prog3.dir/includes_CXX.rsp
 CMakeFiles/Prog3.dir/CSVParser.cpp.obj: C:/Users/jayce/COP3530/CrimeDataBatonRouge/CSVParser.cpp
 CMakeFiles/Prog3.dir/CSVParser.cpp.obj: CMakeFiles/Prog3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jayce\COP3530\CrimeDataBatonRouge\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Prog3.dir/CSVParser.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jayce\COP3530\CrimeDataBatonRouge\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Prog3.dir/CSVParser.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Prog3.dir/CSVParser.cpp.obj -MF CMakeFiles\Prog3.dir\CSVParser.cpp.obj.d -o CMakeFiles\Prog3.dir\CSVParser.cpp.obj -c C:\Users\jayce\COP3530\CrimeDataBatonRouge\CSVParser.cpp
 
 CMakeFiles/Prog3.dir/CSVParser.cpp.i: cmake_force
@@ -132,7 +147,8 @@ CMakeFiles/Prog3.dir/CSVParser.cpp.s: cmake_force
 Prog3_OBJECTS = \
 "CMakeFiles/Prog3.dir/main.cpp.obj" \
 "CMakeFiles/Prog3.dir/Window.cpp.obj" \
-"CMakeFiles/Prog3.dir/StateWindow.cpp.obj" \
+"CMakeFiles/Prog3.dir/ZipWindow.cpp.obj" \
+"CMakeFiles/Prog3.dir/CityWindow.cpp.obj" \
 "CMakeFiles/Prog3.dir/CSVParser.cpp.obj"
 
 # External object files for target Prog3
@@ -140,7 +156,8 @@ Prog3_EXTERNAL_OBJECTS =
 
 Prog3.exe: CMakeFiles/Prog3.dir/main.cpp.obj
 Prog3.exe: CMakeFiles/Prog3.dir/Window.cpp.obj
-Prog3.exe: CMakeFiles/Prog3.dir/StateWindow.cpp.obj
+Prog3.exe: CMakeFiles/Prog3.dir/ZipWindow.cpp.obj
+Prog3.exe: CMakeFiles/Prog3.dir/CityWindow.cpp.obj
 Prog3.exe: CMakeFiles/Prog3.dir/CSVParser.cpp.obj
 Prog3.exe: CMakeFiles/Prog3.dir/build.make
 Prog3.exe: C:/SFML/lib/libsfml-system-s-d.a
@@ -159,7 +176,7 @@ Prog3.exe: C:/SFML/lib/libFLAC.a
 Prog3.exe: CMakeFiles/Prog3.dir/linkLibs.rsp
 Prog3.exe: CMakeFiles/Prog3.dir/objects1.rsp
 Prog3.exe: CMakeFiles/Prog3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\jayce\COP3530\CrimeDataBatonRouge\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Prog3.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\jayce\COP3530\CrimeDataBatonRouge\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Prog3.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Prog3.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -98,16 +98,22 @@
 		<Unit filename="C:/Users/jayce/COP3530/CrimeDataBatonRouge/CSVParser.h">
 			<Option target="Prog3"/>
 		</Unit>
-		<Unit filename="C:/Users/jayce/COP3530/CrimeDataBatonRouge/StateWindow.cpp">
+		<Unit filename="C:/Users/jayce/COP3530/CrimeDataBatonRouge/CityWindow.cpp">
 			<Option target="Prog3"/>
 		</Unit>
-		<Unit filename="C:/Users/jayce/COP3530/CrimeDataBatonRouge/StateWindow.h">
+		<Unit filename="C:/Users/jayce/COP3530/CrimeDataBatonRouge/CityWindow.h">
 			<Option target="Prog3"/>
 		</Unit>
 		<Unit filename="C:/Users/jayce/COP3530/CrimeDataBatonRouge/Window.cpp">
 			<Option target="Prog3"/>
 		</Unit>
 		<Unit filename="C:/Users/jayce/COP3530/CrimeDataBatonRouge/Window.h">
+			<Option target="Prog3"/>
+		</Unit>
+		<Unit filename="C:/Users/jayce/COP3530/CrimeDataBatonRouge/ZipWindow.cpp">
+			<Option target="Prog3"/>
+		</Unit>
+		<Unit filename="C:/Users/jayce/COP3530/CrimeDataBatonRouge/ZipWindow.h">
 			<Option target="Prog3"/>
 		</Unit>
 		<Unit filename="C:/Users/jayce/COP3530/CrimeDataBatonRouge/csv2/include/csv2/mio.hpp">

@@ -2,7 +2,7 @@
 #include <SFML/graphics.hpp>
 #include <iostream>
 #include "Window.h"
-#include "StateWindow.h"
+#include "ZipWindow.h"
 #include "CSVParser.h"
 using namespace std;
 
