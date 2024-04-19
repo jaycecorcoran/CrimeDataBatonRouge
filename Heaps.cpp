@@ -2,90 +2,74 @@
 // Created by Caleb Jackson on 4/17/24.
 //
 
-#include "Heaps.h"
+#include "heap.h"
 
-// unfortunately, I chose to use a model with two values so it is a bit annoying to deal with
-
-Min_Heap::Min_Heap(int cap)
-{
-    size = 0;
-    capacity = cap;
-    arr = new Node[cap];
+void heap::insert(int zipcode, std::map<std::string, int> crimes) {
+    int count = numCrimes(crimes);
+    heap::Node temp;
+    temp.zipcode = zipcode;
+    temp.Crimes = std::move(crimes);
+    map.push({count, temp});
 }
 
-int Min_Heap::parent(int index) {
-    return (index-1)/2;
-}
-
-int Min_Heap::left(int index) {
-    return 2*index + 1;
-}
-
-int Min_Heap::right(int index) {
-    return 2*index + 2;
-}
-
-// so insert key is our first look, you get to see how std::swap failed me and the use of a ton of different variables
-
-void Min_Heap::insertKey(int count, int zip) {
-    if (size == capacity)
-    {
-        return;
+int heap::numCrimes(std::map<std::string, int> crimes) {
+    int count = 0;
+    for (auto obj : crimes) {
+        count += obj.second;
     }
-    size++;
-    int i = size-1;
-    arr[i] = {count,zip};
-    while (i != 0 && arr[parent(i)].Count > arr[i].Count){
-        std::pair<int, int> tempparent = {arr[parent(i)].Count, arr[parent(i)].zipcode};
-        std::pair<int, int> tempindex = {arr[i].Count, arr[i].zipcode};
-        arr[i].Count = tempparent.first;
-        arr[i].zipcode = tempparent.second;
-        arr[parent(i)].Count = tempindex.first;
-        arr[parent(i)].zipcode = tempindex.second;
-        i = parent(i);
-    }
+    return count;
 }
 
-std::pair<int,int> Min_Heap::extractMin()
-{
-    if (size <= 0) {
-        return {0,0};
+std::vector <std::pair <std::string, int> > heap::getTop5Zip (int zipcode) {
+    std::vector<std::pair<std::string, int> > info;
+    std::priority_queue< std::pair<int, Node>, std::vector<std::pair<int, Node> >, Comparison > mapt;
+    mapt = map;
+    Node temp;
+    while (!mapt.empty()) {
+        std::pair<int, Node> curr = mapt.top();
+        mapt.pop();
+        if (curr.second.zipcode == zipcode) {
+            temp.zipcode = curr.second.zipcode;
+            temp.Crimes = curr.second.Crimes;
+            break;
+        }
     }
-    if (size == 1) {
-        size--;
-        return {arr[0].Count, arr[0].zipcode};
+    for (auto items : temp.Crimes) {
+        info.push_back({items.first, items.second});
     }
-    std::pair<int, int> root = {arr[0].Count, arr[0].zipcode};
-    arr[0] = arr[size-1];
-    size--;
-    MinHeapify(0);
+    std::sort(info.begin(), info.end(), [](auto &a, auto &b) {
+        return a.second > b.second;
+    });
+    std::vector<std::pair<std::string, int> > dupe;
+    for (int i = 0; i < 5; i++) {
+        dupe[i] = std::move(info[i]);
+    }
+    return dupe;
 }
 
-void Min_Heap::MinHeapify(int index) {
-    int l = left(index);
-    int r = right(index);
-    int min = index;
-    if (l < size && arr[l].Count < arr[index].Count) {
-        min = l;
+std::pair<int, std::vector <std::pair <std::string, int> > > heap::top5(heap::Node &s) {
+    std::vector<std::pair<std::string, int> > info;
+    for (auto items : s.Crimes) {
+        info.push_back({items.first, items.second});
     }
-    if (l < size && arr[r].Count < arr[min].Count) {
-        min = r;
+    std::sort(info.begin(), info.end(), [](auto &a, auto &b) {
+        return a.second > b.second;
+    });
+    std::vector<std::pair<std::string, int> > dupe;
+    for (int i = 0; i < 5; i++) {
+        dupe[i] = std::move(info[i]);
     }
-    if (min != index){
-        int tempc1 = arr[index].Count;
-        int tempc2 = arr[min].Count;
-        arr[index].Count = tempc2;
-        arr[min].Count = tempc1;
-        tempc1 = arr[index].zipcode;
-        tempc2 = arr[min].zipcode;
-        arr[index].zipcode = tempc2;
-        arr[min].zipcode = tempc1;
-        MinHeapify(min);
-    }
+    return {s.zipcode, dupe};
 }
 
-std::pair<int, int> Min_Heap::getMin()
-{
-    return {arr[0].Count, arr[0].zipcode};
+std::vector<std::pair <int, std::vector <std::pair <std::string, int> > > > heap::getTop5() {
+    std::vector< std::pair <int, std::vector <std::pair < std::string, int> > > > top5vect;
+    std::priority_queue< std::pair<int, Node>, std::vector<std::pair<int, Node> >, Comparison > mapt;
+    mapt = map;
+    for (int i = 0; i < 5; i++) {
+        std::pair<int, Node> curr = mapt.top();
+        mapt.pop();
+        top5vect.push_back(top5(curr.second));
+    }
+    return top5vect;
 }
-
