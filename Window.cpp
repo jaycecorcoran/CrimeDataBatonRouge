@@ -1,34 +1,44 @@
 //
 // Created by thoma on 4/15/2024.
 //
-#include "StateWindow.h"
+#include "ZipWindow.h"
 #include "Window.h"
 #include <iostream>
 
 Window::~Window() {}
 
+
+
 TitleWindow::TitleWindow() : window(sf::VideoMode(1200, 900), "Food Waste Visualization") {
     if (!font.loadFromFile("Lato-Black.ttf")) {
         std::cerr << "Failed to load font" << std::endl;
     }
-    if (!foodTexture.loadFromFile("food.png")) {
+    if (!criminalTexture.loadFromFile("slasher.png")) {
         std::cerr << "Failed to load food image" << std::endl;
     }
     if (!buttonTexture.loadFromFile("tile_hidden.png")) {
         std::cerr << "Failed to load button texture";
     }
 
-    // Set up the food sprite
-    foodSprite.setTexture(foodTexture);
+    validZipCodes = {"70820", "70802", "70805", "70815", "70807", "70816", "70809", "70806", "70726", "70811", "70808",
+                     "70801", "70819", "70769", "70770", "70814", "70810", "70812", "70825", "70836", "70791", "70813",
+                     "70817", "70782", "70185", "70823", "79816", "70502", "70783", "30083", "70803", "70818", "70053",
+                     "70785", "70422", "70508", "71101", "70767", "70062", "70898", "77099", "76018", "70503", "70804",
+                     "70739", "70722", "70714"};
+
+    displayErrorMessage = false;
+
+    // Set up the picture sprite
+    criminalSprite.setTexture(criminalTexture);
 
     title.setFont(font);
-    title.setString("Visualization of the US Food Waste Crisis");
+    title.setString("Visualization of Baton Rouge Crime Data");
     title.setCharacterSize(36);
     title.setFillColor(sf::Color::Black);
 
     // Initialize team information text
     teamInfo.setFont(font);
-    teamInfo.setString("                             THE FOOD WASTERS\nThomas Chappell, Jayce Corcoran, Caleb Jackson");
+    teamInfo.setString("                  THE HASH SLINGING SLASHERS\nThomas Chappell, Jayce Corcoran, Caleb Jackson");
     teamInfo.setCharacterSize(24);
     teamInfo.setFillColor(sf::Color::Black);
 
@@ -43,14 +53,14 @@ TitleWindow::TitleWindow() : window(sf::VideoMode(1200, 900), "Food Waste Visual
 
     // Set up button text
     buttonText1.setFont(font);
-    buttonText1.setString("Graph 1");
+    buttonText1.setString("Heap");
     buttonText1.setCharacterSize(24);
     buttonText1.setFillColor(sf::Color::Black);
     sf::FloatRect textBounds1 = buttonText1.getLocalBounds();
     buttonText1.setPosition(button1.getPosition().x + (button1.getSize().x - textBounds1.width) / 2, button1.getPosition().y + (button1.getSize().y - textBounds1.height) / 2);
 
     buttonText2.setFont(font);
-    buttonText2.setString("Graph 2");
+    buttonText2.setString("Hash Table");
     buttonText2.setCharacterSize(24);
     buttonText2.setFillColor(sf::Color::Black);
     sf::FloatRect textBounds2 = buttonText2.getLocalBounds();
@@ -64,25 +74,31 @@ TitleWindow::TitleWindow() : window(sf::VideoMode(1200, 900), "Food Waste Visual
 
     // Search input text setup
     searchInput.setFont(font);
-    searchInput.setString("Please enter a state name (e.g. Texas, Florida, Oregon)");
+    searchInput.setString("Please enter a valid zip code (Listed in README file)");
     searchInput.setCharacterSize(20);
-    searchInput.setFillColor(sf::Color::Black);
+    searchInput.setFillColor(sf::Color(105, 105, 105));
     searchInput.setPosition(305, 690);
 
     // Text labels setup
-    stateTextLabel.setFont(font);
-    stateTextLabel.setString("To view data by state:");
-    stateTextLabel.setCharacterSize(20);
-    stateTextLabel.setFillColor(sf::Color::Black);
-    sf::FloatRect stateTextBounds = stateTextLabel.getLocalBounds();
-    stateTextLabel.setPosition((window.getSize().x - stateTextBounds.width) / 2, 650);
+    zipTextLabel.setFont(font);
+    zipTextLabel.setString("To view data by zip code:");
+    zipTextLabel.setCharacterSize(20);
+    zipTextLabel.setFillColor(sf::Color::Black);
+    sf::FloatRect stateTextBounds = zipTextLabel.getLocalBounds();
+    zipTextLabel.setPosition((window.getSize().x - stateTextBounds.width) / 2, 650);
 
-    countryTextLabel.setFont(font);
-    countryTextLabel.setString("To view data by country:");
-    countryTextLabel.setCharacterSize(20);
-    countryTextLabel.setFillColor(sf::Color::Black);
-    sf::FloatRect countryTextBounds = countryTextLabel.getLocalBounds();
-    countryTextLabel.setPosition((window.getSize().x - countryTextBounds.width) / 2, 750);
+    cityTextLabel.setFont(font);
+    cityTextLabel.setString("To view data by city:");
+    cityTextLabel.setCharacterSize(20);
+    cityTextLabel.setFillColor(sf::Color::Black);
+    sf::FloatRect countryTextBounds = cityTextLabel.getLocalBounds();
+    cityTextLabel.setPosition((window.getSize().x - countryTextBounds.width) / 2, 750);
+
+    errorMessage.setFont(font);
+    errorMessage.setString("Error: Please input a valid zip code");
+    errorMessage.setCharacterSize(20);
+    errorMessage.setFillColor(sf::Color::Red);
+    errorMessage.setPosition((window.getSize().x - errorMessage.getLocalBounds().width) / 2, 610);
 }
 
 void TitleWindow::run() {
@@ -99,11 +115,26 @@ void TitleWindow::handleEvents() {
             window.close();
         } else if (event.type == sf::Event::MouseButtonPressed) {
             // Check if the mouse is clicked within the search bar
+            // Clear the search input when the search bar is clicked
             sf::Vector2i mousePos = sf::Mouse::getPosition(window);
             sf::FloatRect searchBarBounds = searchBar.getGlobalBounds();
             if (searchBarBounds.contains(mousePos.x, mousePos.y)) {
-                // Clear the search input when the search bar is clicked
                 searchInput.setString("");
+                // Reset the error message flag
+                displayErrorMessage = false;
+            }
+            sf::FloatRect button1Bounds = button1.getGlobalBounds();
+            if (button1Bounds.contains(mousePos.x, mousePos.y)) {
+                // Create a new CityWindow instance and run it
+                CityWindow cityWindow("heap");
+                cityWindow.run();
+            }
+            // Check if the mouse is clicked within button2
+            sf::FloatRect button2Bounds = button2.getGlobalBounds();
+            if (button2Bounds.contains(mousePos.x, mousePos.y)) {
+                // Create a new CityWindow instance and run it
+                CityWindow cityWindow("hashtable");
+                cityWindow.run();
             }
         } else if (event.type == sf::Event::TextEntered) {
             // Handle text input
@@ -123,11 +154,16 @@ void TitleWindow::handleEvents() {
             }
         } else if (event.type == sf::Event::KeyPressed) {
             if (event.key.code == sf::Keyboard::Enter) {
-                // Open StateWindow with the entered string
-                std::string stateName = searchInput.getString();
-                if (!stateName.empty()) {
-                    StateWindow stateWindow(stateName);
-                    stateWindow.run();
+                // Check if the entered zip code is valid
+                std::string zipCode = searchInput.getString();
+                if (isValidZipCode(zipCode)) {
+                    // Open ZipWindow with the entered string
+                    ZipWindow zipWindow(zipCode);
+                    zipWindow.run();
+                    displayErrorMessage = false;
+                } else {
+                    // Set the error message flag to true
+                    displayErrorMessage = true;
                 }
             }
         }
@@ -172,11 +208,11 @@ void TitleWindow::draw() {
     window.draw(teamInfo);
 
     // Position the image sprite between the title and team info text
-    sf::FloatRect foodBounds = foodSprite.getLocalBounds();
+    sf::FloatRect foodBounds = criminalSprite.getLocalBounds();
     float imageX = centerX - foodBounds.width / 2;
     float imageY = titleBounds.top + titleBounds.height + 50; // Place the image 50 pixels below the title text
-    foodSprite.setPosition(imageX, imageY);
-    window.draw(foodSprite);
+    criminalSprite.setPosition(imageX + 45, imageY - 30);
+    window.draw(criminalSprite);
 
     window.draw(button1);
     window.draw(button2);
@@ -185,29 +221,17 @@ void TitleWindow::draw() {
 
     window.draw(searchBar);
     window.draw(searchInput);
-    window.draw(stateTextLabel);
-    window.draw(countryTextLabel);
+    window.draw(zipTextLabel);
+    window.draw(cityTextLabel);
 
-
-    static sf::Clock cursorClock;
-    static bool cursorVisible = true;
-    if (cursorClock.getElapsedTime().asMilliseconds() > 500) {
-        cursorVisible = !cursorVisible;
-        cursorClock.restart();
-    }
-
-    if (cursorVisible) {
-        // Draw cursor (vertical line)
-        float cursorX = searchInput.getPosition().x + searchInput.getLocalBounds().width + 5;
-        float cursorY = searchInput.getPosition().y + (searchInput.getLocalBounds().height - searchInput.getCharacterSize()) / 2;
-        sf::Vertex cursorLine[] = {
-                sf::Vertex(sf::Vector2f(cursorX, cursorY)),
-                sf::Vertex(sf::Vector2f(cursorX, cursorY + searchInput.getCharacterSize()))
-        };
-        window.draw(cursorLine, 2, sf::Lines);
+    if (displayErrorMessage) {
+        window.draw(errorMessage);
     }
 
 
     window.display(); // Display the window contents
 }
 
+bool TitleWindow::isValidZipCode(const std::string& zipCode) const {
+    return validZipCodes.count(zipCode) > 0;
+}

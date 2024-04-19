@@ -6,6 +6,8 @@
 #define PROG3_WINDOW_H
 
 #include <SFML/Graphics.hpp>
+#include <set>
+#include "CityWindow.h"
 
 class Window {
 public:
@@ -23,8 +25,8 @@ private:
     sf::Font font;
     sf::Text title;
     sf::Text teamInfo;
-    sf::Texture foodTexture;
-    sf::Sprite foodSprite;
+    sf::Texture criminalTexture;
+    sf::Sprite criminalSprite;
 
     sf::RectangleShape button1;
     sf::RectangleShape button2;
@@ -35,8 +37,15 @@ private:
     sf::RectangleShape searchBar;
     sf::Text searchInput;
 
-    sf::Text stateTextLabel;
-    sf::Text countryTextLabel;
+    sf::Text zipTextLabel;
+    sf::Text cityTextLabel;
+
+    std::set<std::string> validZipCodes;
+    sf::Text errorMessage;
+
+    bool displayErrorMessage;
+
+    bool isValidZipCode(const std::string& zipCode) const;
 
     void handleEvents();
     void draw();
