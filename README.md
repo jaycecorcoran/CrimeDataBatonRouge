@@ -1,6 +1,6 @@
 To run our program you will need:
-SFML (2.5.1 is what we used)
-CSV2 frameworks
+SFML (2.5.1 is what we used),
+CSV2 frameworks,
 All the images, fonts, and csv files included in our cmake-build-debug folder
 
 Add the SFML and CSV framework files to your C drive. 
