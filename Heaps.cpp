@@ -30,7 +30,9 @@ int heap::numCrimes(std::map<std::string, int> crimes) {
 // came around, as you can see the only main thing to cause complexity is copying over the queue to another object
 // with this operation it takes a good bit of complexity and for this container I would assume it is O (log V + O(5*3) )
 // assuming we have a constant time complexity on copying V number of Nodes, while this could be implemented by popping
-// the original queue I want to keep the heap intact
+// the original queue I want to keep the heap intact, another consideration is that I am creating a map with the
+// new instances which is also a an operation with O ( V ) complexity so in the end we have a complexity of
+// O(log V + V)
 
 std::vector<std::string> heap::getTop5Num() {
     std::vector<std::string> top5;

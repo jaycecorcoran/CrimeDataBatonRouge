@@ -148,7 +148,6 @@ std::vector<std::string> Hashtable::getTop5Num() {
         }
         for (auto item : te) {
             if (count < 2 && item.second != "NOT USED") {
-                std::cout << item.second << std::endl;
                 temp += item.second + ", ";
                 count++;
             }
