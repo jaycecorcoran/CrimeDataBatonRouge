@@ -43,10 +43,8 @@ void CityWindow::draw() {
     backgroundImage.setPosition((window.getSize().x - backgroundImage.getLocalBounds().width * 0.55f) / 2.f, 100.f);
     window.draw(backgroundImage);
 
-    // Draw title text
-    window.draw(titleText);
 
-    // Draw crime rate text
+    window.draw(titleText);
     window.draw(crimeRateText);
 
     // Draw crime rate rows

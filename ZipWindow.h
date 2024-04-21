@@ -18,7 +18,7 @@ public:
 private:
     sf::RenderWindow window;
     sf::Font font;
-    std::string zipCode; // New member variable to hold the zip code
+    std::string zipCode;
     std::vector<std::pair<std::string, int>> crimes;
     sf::Text titleText;
     sf::Text commonCrimesText;

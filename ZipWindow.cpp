@@ -37,13 +37,11 @@ void ZipWindow::draw() {
     backgroundImage.setPosition((window.getSize().x - backgroundImage.getLocalBounds().width * 0.55f) / 2.f, 100.f);
     window.draw(backgroundImage);
 
-    // Draw title text
-    window.draw(titleText);
 
-    // Draw common crimes text
+    window.draw(titleText);
     window.draw(commonCrimesText);
 
-    // Draw crime texts
+    // Draw crime list
     for (const auto& text : crimeTexts) {
         window.draw(text);
     }

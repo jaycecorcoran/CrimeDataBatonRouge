@@ -7,7 +7,7 @@ Window::~Window() {}
 
 
 
-TitleWindow::TitleWindow() : window(sf::VideoMode(1200, 900), "Food Waste Visualization") {
+TitleWindow::TitleWindow() : window(sf::VideoMode(1200, 900), "Crime Data Visualization") {
     if (!font.loadFromFile("Lato-Black.ttf")) {
         std::cerr << "Failed to load font" << std::endl;
     }
@@ -57,13 +57,13 @@ TitleWindow::TitleWindow() : window(sf::VideoMode(1200, 900), "Food Waste Visual
     teamInfo.setFillColor(sf::Color::Black);
 
     // Set up button rectangles
-    button1.setSize(sf::Vector2f(200, 60)); // Adjust size as needed
+    button1.setSize(sf::Vector2f(200, 60));
     button1.setTexture(&buttonTexture);
-    button1.setPosition(300, 700); // Adjust position as needed
+    button1.setPosition(300, 700);
 
-    button2.setSize(sf::Vector2f(200, 60)); // Adjust size as needed
+    button2.setSize(sf::Vector2f(200, 60));
     button2.setTexture(&buttonTexture);
-    button2.setPosition(700, 700); // Adjust position as needed
+    button2.setPosition(700, 700);
 
     // Set up button text
     buttonText1.setFont(font);
@@ -180,7 +180,7 @@ void TitleWindow::handleEvents() {
                     zipWindow.run();
                     displayErrorMessage = false;
                 } else {
-                    // Set the error message flag to true
+                    // Display error if not a valid zip code
                     displayErrorMessage = true;
                 }
             }
