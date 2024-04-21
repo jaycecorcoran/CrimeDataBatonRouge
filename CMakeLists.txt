@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.26)
+cmake_minimum_required(VERSION 3.25.2)
 project(Prog3)
 
 set(CMAKE_CXX_STANDARD 17)
 
 
-set(SFML_STATIC_LIBRARIES TRUE)
+#set(SFML_STATIC_LIBRARIES TRUE)
 set(DCSV2_BUILD_TESTS TRUE)
 set(SFML_DIR C:/SFML/lib/cmake/SFML)
 find_package(SFML COMPONENTS system window graphics audio network REQUIRED)
@@ -20,6 +20,10 @@ add_executable(Prog3 main.cpp
         CityWindow.h
         CSVParser.h
         CSVParser.cpp
+        Hashtable.h
+        Hashtable.cpp
+        Heaps.h
+        Heaps.cpp
         csv2/include/csv2/mio.hpp
         csv2/include/csv2/parameters.hpp
         csv2/single_include/csv2/csv2.hpp
