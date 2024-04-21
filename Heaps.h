@@ -20,11 +20,12 @@ private:
         int zipcode;
         std::map<std::string, int> Crimes;
     };
+
     // a comparison operator I need to actually make the priority queue work since I have weird types!
+    // might not be fully necessary, but it helps out for sure
 
     struct Comparison {
-        constexpr bool operator() ( std::pair<int, Node> const& a, std::pair<int, Node> const& b) const noexcept
-        {
+        constexpr bool operator() ( std::pair<int, Node> const& a, std::pair<int, Node> const& b) const noexcept {
             return a.first < b.first;
         }
     };
@@ -47,8 +48,6 @@ public:
     // and listing the top 5 in one given zip
 
     std::vector <std::pair <std::string, int> > getTop5Zip(int);
-    std::pair<int, std::vector <std::pair <std::string, int> > > top5(heap::Node &s);
-    std::vector<std::pair <int, std::vector <std::pair <std::string, int> > > > getTop5();
     std::vector< std::string > getTop5Num();
 
 };

@@ -23,7 +23,9 @@ int Hashtable::hash(int zipcode) {
 }
 
 // now insertion, all we take is the zipcode and crime and work from there, pretty standard stuff
-// O (log N) complexity without rehashing O(n) with rehash
+// O (log N * log V) complexity without rehashing O(N * V + log V * log N) with rehash N being the number of objects
+// in the table of course V being the number of objects in the map items of each object
+// for example we need to make sure the hashing variables are good so I run some comparison operators
 
 void Hashtable::insert(int zipcode, std::string crime) {
     if (hashzip == 0)
@@ -35,7 +37,6 @@ void Hashtable::insert(int zipcode, std::string crime) {
         zipmin = zipcode;
     }
     if (zipcodes.size() + 1 >= loadfactor*capacity) {
-        //std::cout << "rehashing" << "\n";
         rehash(capacity+2);
     }
     int key = hash(zipcode);
@@ -44,12 +45,12 @@ void Hashtable::insert(int zipcode, std::string crime) {
 }
 
 // rehash is a little unique as I use my zipmin to create the new hash function as you can see, but just lots of moving
-// O(n) complexity
+// O(N * V) complexity as I use an overloaded operator to copy over the map but for N objects of the zipcodes map we
+// have to move over V objects of the zipnode map;
 
 void Hashtable::rehash(int new_capacity)
 {
     capacity = new_capacity;
-    //std::cout << hashzip << " " << zipmin << "\n";
     std::map < int, ZipNode > nu_zipcodes;
     for (auto nodes : zipcodes){
         int key = nodes.second.Zipcode % zipmin;
@@ -58,6 +59,9 @@ void Hashtable::rehash(int new_capacity)
     zipcodes = std::move(nu_zipcodes);
     hashzip = zipmin;
 }
+
+// this is the part that stated previously has O(V) complexity as we copy all objects in the sub maps, so for V objects
+// we need to iterate through them
 
 Hashtable::ZipNode Hashtable::ZipNode::operator=(Hashtable::ZipNode s) {
     this->Zipcode = s.Zipcode;
@@ -72,6 +76,9 @@ Hashtable::ZipNode Hashtable::ZipNode::operator=(Hashtable::ZipNode s) {
 
 // the function below gets our top 5 for the area with sorting the values stored it uses a rather simple concept
 // there is a bit of difficulty as with many of these operations when it comes to the sorting
+// so for the info we can just push back the values for the crimes simply enough O(V) and then with sort we have
+// a bit of an issue as we get a complexity of O(V * log V) as stated on cpp reference meaning our final complexity
+// is O(V*logV) as we need to do this sorting algorithm
 
 std::vector < std::pair < std::string, int > > Hashtable::getTop5Zip(int zipcode) {
     std::vector < std::pair < std::string, int > > info;
@@ -104,6 +111,7 @@ int Hashtable::NumCrimes(int key) {
 
 // this function is basically gonna help the heap get made it is impractical to make the heap and fill it as the program runs
 // so instead I'm electing to build the heap using the processed information stored here
+// this function has a complexity of O(N) where we are just outputting all the data in the table simply enough
 
 std::vector<std::pair<int, std::map<std::string, int> > > Hashtable::Heaphelper() {
     std::vector<std::pair<int, std::map<std::string, int> > > data;
@@ -115,7 +123,11 @@ std::vector<std::pair<int, std::map<std::string, int> > > Hashtable::Heaphelper(
 
 // below is the function that will give us the final product for the top 5 areas in terms of crime, the beginning of it
 // takes our map and iterates through the objects in it and we use num crimes to tally up the total crimes of the area
-//
+// so as you can see we call NumCrimes for all the objects in the array meaning we have a complexity so far of
+// O(V * N) since we need to tally up all the objects crimes, then we have the sorting algorithm once again
+// and the sorting will give us a complexity of O(N * logN) since we are sorting by the number of objects in the array
+// giving us a complexity of O(V*N + N*logN) since there are varying quantities, it depends on the situation which is
+// greater cost while I do copy over the map with O(N) complexity it doesn't compare to these two in time
 
 std::vector<std::string> Hashtable::getTop5Num() {
     std::vector<std::string> top5;
@@ -140,8 +152,7 @@ std::vector<std::string> Hashtable::getTop5Num() {
                 temp += item.second + ", ";
                 count++;
             }
-            else if (count < 2)
-            {
+            else if (count < 2) {
 
             }
             else {
@@ -153,52 +164,4 @@ std::vector<std::string> Hashtable::getTop5Num() {
         top5.push_back(temp);
     }
     return top5;
-}
-
-// Below is the memory of the previous functions that had a use, but now go unused
-
-// our function to basically flip key and the zipcode
-// O (log N)
-
-std::vector<std::pair<std::string, int> > Hashtable::getzipinfo(int zipcode) {
-    int zip = hash(zipcode);
-    std::vector<std::pair<std::string, int>> he;
-    for (auto items : zipcodes[zip].Crimes){
-        std::cout << items.first << " " << items.second << "\n";
-    }
-    return he;
-}
-
-int Hashtable::getzip(int key) {
-    return zipcodes[key].Zipcode;
-}
-
-std::pair<int, std::vector <std::pair <std::string, int> > > Hashtable::top5(ZipNode &s) {
-    std::vector<std::pair <std::string, int> > top;
-    for (auto items : s.Crimes) {
-        top.push_back(items);
-    }
-    std::sort(top.begin(), top.end(), [](auto &a, auto &b) {
-        return a.second > b.second;
-    });
-    std::vector<std::pair <std::string, int> > dupe(5);
-    for (int i = 0; i < 5; i++) {
-        dupe[i] = top[i];
-    }
-    return {s.Zipcode, dupe};
-}
-
-std::vector<std::pair <int, std::vector <std::pair <std::string, int> > > > Hashtable::getTop5() {
-    std::vector<std::pair <int, std::vector <std::pair <std::string, int> > > > top;
-    std::vector<std::pair < int, ZipNode > > holder;
-    for (auto items : zipcodes) {
-        holder.push_back({NumCrimes(items.first), items.second});
-    }
-    std::sort(holder.begin(), holder.end(), [](auto &a, auto &b) {
-        return a.first > b.first;
-    });
-    for (int i = 0; i < 5; i++) {
-        top.push_back(top5(holder[i].second));
-    }
-    return top;
 }

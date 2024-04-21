@@ -92,32 +92,3 @@ std::vector <std::pair <std::string, int> > heap::getTop5Zip (int zipcode) {
     }
     return dupe;
 }
-
-// this is the helper function for the actual BFS algorithm to get the values for the nodes
-
-std::pair<int, std::vector <std::pair <std::string, int> > > heap::top5(heap::Node &s) {
-    std::vector<std::pair<std::string, int> > info;
-    for (auto items : s.Crimes) {
-        info.push_back({items.first, items.second});
-    }
-    std::sort(info.begin(), info.end(), [](auto &a, auto &b) {
-        return a.second > b.second;
-    });
-    std::vector<std::pair<std::string, int> > dupe(5);
-    for (int i = 0; i < 5; i++) {
-        dupe[i] = info[i];
-    }
-    return {s.zipcode, dupe};
-}
-
-std::vector<std::pair <int, std::vector <std::pair <std::string, int> > > > heap::getTop5() {
-    std::vector< std::pair <int, std::vector <std::pair < std::string, int> > > > top5vect;
-    std::priority_queue< std::pair<int, Node>, std::vector<std::pair<int, Node> >, Comparison > mapt;
-    mapt = map;
-    for (int i = 0; i < 5; i++) {
-        std::pair<int, Node> curr = mapt.top();
-        mapt.pop();
-        top5vect.push_back(top5(curr.second));
-    }
-    return top5vect;
-}

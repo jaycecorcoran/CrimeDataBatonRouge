@@ -23,6 +23,7 @@ private:
     struct ZipNode{
         int Zipcode;
         std::map<std::string, int> Crimes;
+        // this operator overloading helped me fix the errors so lets leave it!
         ZipNode operator=(ZipNode);
     };
 
@@ -50,29 +51,20 @@ public:
     Hashtable();
     int hash(int);
 
-    // next I have some of the important things such as insertion, rehashing, and an accessor for the zipcode huh??
-    // as you'll see basically my hash function takes a zipcode and turns it to a key, this is a way of turning it back
-    // get zip is unimplented in the final product so RIP
+    // next I have some of the important things such as insertion, rehashing, etc
 
     void insert(int, std::string);
     void rehash(int);
-    int getzip(int);
 
-    // next I have our grand assortment of accessor functions, getting info for a zipcode, getting the maxes, etc
+    // next I have our grand assortment of accessor functions, number of crimes in a zipcode
     // if you can commit it often or once, it'll come back in this data set
-    // this is the accessor function that will use the zipcode to get information about an area
-    // another function that isn't going to make the cut RIP
-
-    std::vector<std::pair<std::string, int> > getzipinfo(int);
-
     // now these functions are for the goal of getting the top 5 in a given area and then the top 5 of top 5
+    // these all have the goal of giving us the full information for the final product
 
-    std::vector <std::pair <std::string, int> > getTop5Zip(int);
-    std::pair<int, std::vector <std::pair <std::string, int> > > top5(ZipNode &s);
-    std::vector<std::pair <int, std::vector <std::pair <std::string, int> > > > getTop5();
     int NumCrimes(int);
     std::vector< std::string > getTop5Num();
     std::vector< std::pair < int, std::map < std::string, int > > > Heaphelper();
+    std::vector <std::pair <std::string, int> > getTop5Zip(int);
 
 };
 
