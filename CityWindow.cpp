@@ -106,7 +106,6 @@ void CityWindow::setupCrimeRateRows() {
         auto stop = high_resolution_clock::now();
         auto duration = duration_cast<microseconds>(stop - start);
         time.setString("Time using a Hashtable: " + std::to_string(duration.count()) + " microseconds");
-        auto info = hashtable.getzipinfo(70805);
     }
 
     time.setCharacterSize(20);
