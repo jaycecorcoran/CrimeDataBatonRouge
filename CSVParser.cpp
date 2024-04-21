@@ -45,6 +45,9 @@ bool CSVParser::parse(std::vector<std::pair<int, std::string>>& data) {
             if (values.size() > std::max(zip_col, crime_cat_col)) {
                 try {
                     int zip_code = std::stoi(values[zip_col]);
+                    if (zip_code == 30083) {
+                        continue;
+                    }
                     data.emplace_back(zip_code, values[crime_cat_col]);
                 } catch (const std::invalid_argument& ia) {
                     // Skip the row if zip code is not an integer

@@ -8,6 +8,11 @@
 #include <SFML/Graphics.hpp>
 #include <set>
 #include "CityWindow.h"
+#include "Hashtable.h"
+#include "Heaps.h"
+#include <iostream>
+#include "ZipWindow.h"
+#include "CSVParser.h"
 
 class Window {
 public:
@@ -21,6 +26,10 @@ public:
     virtual void run() override;
 
 private:
+
+    Hashtable hashtable;
+    heap heap;
+
     sf::RenderWindow window;
     sf::Font font;
     sf::Text title;

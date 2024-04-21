@@ -49,6 +49,7 @@ public:
     std::vector <std::pair <std::string, int> > getTop5Zip(int);
     std::pair<int, std::vector <std::pair <std::string, int> > > top5(heap::Node &s);
     std::vector<std::pair <int, std::vector <std::pair <std::string, int> > > > getTop5();
+    std::vector< std::string > getTop5Num();
 
 };
 

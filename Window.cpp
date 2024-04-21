@@ -1,9 +1,7 @@
 //
 // Created by thoma on 4/15/2024.
 //
-#include "ZipWindow.h"
 #include "Window.h"
-#include <iostream>
 
 Window::~Window() {}
 
@@ -18,6 +16,22 @@ TitleWindow::TitleWindow() : window(sf::VideoMode(1200, 900), "Food Waste Visual
     }
     if (!buttonTexture.loadFromFile("tile_hidden.png")) {
         std::cerr << "Failed to load button texture";
+    }
+
+    // back-end here and basically we are going to do all of the mathematics and calculations within window
+    // so this will be a frankenstein of our work, it will call the parser, the hashtables, and the heap
+
+    std::string input_path = "crimeDataSet.csv";
+    CSVParser parser(input_path);
+    std::vector<std::pair<int, std::string>> data;
+    if (parser.parse(data)) {
+        for (const auto &pair: data) {
+            hashtable.insert(pair.first, pair.second);
+        }
+    }
+    std::vector<std::pair<int, std::map<std::string, int> > > help = hashtable.Heaphelper();
+    for (auto item: help) {
+        heap.insert(item.first, item.second);
     }
 
     validZipCodes = {"70820", "70802", "70805", "70815", "70807", "70816", "70809", "70806", "70726", "70811", "70808",
@@ -45,11 +59,11 @@ TitleWindow::TitleWindow() : window(sf::VideoMode(1200, 900), "Food Waste Visual
     // Set up button rectangles
     button1.setSize(sf::Vector2f(200, 60)); // Adjust size as needed
     button1.setTexture(&buttonTexture);
-    button1.setPosition(300, 800); // Adjust position as needed
+    button1.setPosition(300, 700); // Adjust position as needed
 
     button2.setSize(sf::Vector2f(200, 60)); // Adjust size as needed
     button2.setTexture(&buttonTexture);
-    button2.setPosition(700, 800); // Adjust position as needed
+    button2.setPosition(700, 700); // Adjust position as needed
 
     // Set up button text
     buttonText1.setFont(font);
@@ -70,14 +84,14 @@ TitleWindow::TitleWindow() : window(sf::VideoMode(1200, 900), "Food Waste Visual
     searchBar.setFillColor(sf::Color::White);
     searchBar.setOutlineThickness(2);
     searchBar.setOutlineColor(sf::Color::Black);
-    searchBar.setPosition(300, 680);
+    searchBar.setPosition(300, 580);
 
     // Search input text setup
     searchInput.setFont(font);
     searchInput.setString("Please enter a valid zip code (Listed in README file)");
     searchInput.setCharacterSize(20);
     searchInput.setFillColor(sf::Color(105, 105, 105));
-    searchInput.setPosition(305, 690);
+    searchInput.setPosition(305, 590);
 
     // Text labels setup
     zipTextLabel.setFont(font);
@@ -85,24 +99,25 @@ TitleWindow::TitleWindow() : window(sf::VideoMode(1200, 900), "Food Waste Visual
     zipTextLabel.setCharacterSize(20);
     zipTextLabel.setFillColor(sf::Color::Black);
     sf::FloatRect stateTextBounds = zipTextLabel.getLocalBounds();
-    zipTextLabel.setPosition((window.getSize().x - stateTextBounds.width) / 2, 650);
+    zipTextLabel.setPosition((window.getSize().x - stateTextBounds.width) / 2, 550);
 
     cityTextLabel.setFont(font);
     cityTextLabel.setString("To view data by city:");
     cityTextLabel.setCharacterSize(20);
     cityTextLabel.setFillColor(sf::Color::Black);
     sf::FloatRect countryTextBounds = cityTextLabel.getLocalBounds();
-    cityTextLabel.setPosition((window.getSize().x - countryTextBounds.width) / 2, 750);
+    cityTextLabel.setPosition((window.getSize().x - countryTextBounds.width) / 2, 650);
 
     errorMessage.setFont(font);
     errorMessage.setString("Error: Please input a valid zip code");
     errorMessage.setCharacterSize(20);
     errorMessage.setFillColor(sf::Color::Red);
-    errorMessage.setPosition((window.getSize().x - errorMessage.getLocalBounds().width) / 2, 610);
+    errorMessage.setPosition((window.getSize().x - errorMessage.getLocalBounds().width) / 2, 510);
 }
 
 void TitleWindow::run() {
     while (window.isOpen()) {
+        window.setActive();
         handleEvents();
         draw();
     }
@@ -126,14 +141,14 @@ void TitleWindow::handleEvents() {
             sf::FloatRect button1Bounds = button1.getGlobalBounds();
             if (button1Bounds.contains(mousePos.x, mousePos.y)) {
                 // Create a new CityWindow instance and run it
-                CityWindow cityWindow("heap");
+                CityWindow cityWindow("heap", heap, hashtable);
                 cityWindow.run();
             }
             // Check if the mouse is clicked within button2
             sf::FloatRect button2Bounds = button2.getGlobalBounds();
             if (button2Bounds.contains(mousePos.x, mousePos.y)) {
                 // Create a new CityWindow instance and run it
-                CityWindow cityWindow("hashtable");
+                CityWindow cityWindow("hashtable", heap, hashtable);
                 cityWindow.run();
             }
         } else if (event.type == sf::Event::TextEntered) {
@@ -158,7 +173,10 @@ void TitleWindow::handleEvents() {
                 std::string zipCode = searchInput.getString();
                 if (isValidZipCode(zipCode)) {
                     // Open ZipWindow with the entered string
-                    ZipWindow zipWindow(zipCode);
+                    int zip = stoi(zipCode);
+                    auto crimes = hashtable.getTop5Zip(zip);
+                    std::cout << zipCode << "l" << std::endl;
+                    ZipWindow zipWindow(zipCode, crimes);
                     zipWindow.run();
                     displayErrorMessage = false;
                 } else {
@@ -210,7 +228,7 @@ void TitleWindow::draw() {
     // Position the image sprite between the title and team info text
     sf::FloatRect foodBounds = criminalSprite.getLocalBounds();
     float imageX = centerX - foodBounds.width / 2;
-    float imageY = titleBounds.top + titleBounds.height + 50; // Place the image 50 pixels below the title text
+    float imageY = titleBounds.top + titleBounds.height + 25; // Place the image 50 pixels below the title text
     criminalSprite.setPosition(imageX + 45, imageY - 30);
     window.draw(criminalSprite);
 

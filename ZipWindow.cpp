@@ -3,9 +3,9 @@
 //
 
 #include "ZipWindow.h"
-#include <iostream>
 
-ZipWindow::ZipWindow(const std::string& zipCode) : window(sf::VideoMode(1200, 900), zipCode + " Data Visualization"), zipCode(zipCode) {
+ZipWindow::ZipWindow(const std::string& zipCode, std::vector<std::pair<std::string, int>> crime) : window(sf::VideoMode(1200, 900), zipCode + " Data Visualization"), zipCode(zipCode) {
+    this->crimes = crime;
     loadFont();
     loadBackgroundImage();
     setupTitleText();
@@ -85,13 +85,14 @@ void ZipWindow::setupCommonCrimesText() {
 
 void ZipWindow::setupCrimeTexts() {
     // Set up crime texts
-    const std::vector<std::string> crimeNames = {"Crime 1", "Crime 2", "Crime 3", "Crime 4", "Crime 5"};
     const float startY = 610.f;
     const float lineHeight = 40.f;
-    for (size_t i = 0; i < crimeNames.size(); ++i) {
+    std::cout << crimes.size() << std::endl;
+    for (size_t i = 0; i < crimes.size(); ++i) {
         sf::Text crimeText;
         crimeText.setFont(font);
-        crimeText.setString(std::to_string(i + 1) + ". " + crimeNames[i]);
+        std::cout << std::to_string(i+1) + " " + crimes[i].first + " " + std::to_string(crimes[i].second) << std::endl;
+        crimeText.setString(std::to_string(i+1) + " " + crimes[i].first + " " + std::to_string(crimes[i].second));
         crimeText.setCharacterSize(24);
         crimeText.setFillColor(sf::Color::Black);
         crimeText.setPosition(450.f, startY + i * lineHeight);

@@ -6,16 +6,20 @@
 #define PROG3_ZIPWINDOW_H
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include "Heaps.h"
+#include "Hashtable.h"
 
 class ZipWindow {
 public:
-    ZipWindow(const std::string& zipCode);
+    ZipWindow(const std::string& zipCode, std::vector<std::pair<std::string, int>> crime);
     void run();
 
 private:
     sf::RenderWindow window;
     sf::Font font;
     std::string zipCode; // New member variable to hold the zip code
+    std::vector<std::pair<std::string, int>> crimes;
     sf::Text titleText;
     sf::Text commonCrimesText;
     sf::Texture backgroundImageTexture;

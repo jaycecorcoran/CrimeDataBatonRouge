@@ -9,7 +9,7 @@
 
 Hashtable::Hashtable()
 {
-    capacity = 10;
+    capacity = 2;
     hashzip = 0;
     zipmin = 99999;
 }
@@ -31,13 +31,12 @@ void Hashtable::insert(int zipcode, std::string crime) {
         hashzip = zipcode;
         zipmin = zipcode;
     }
-    if (zipcode < hashzip) {
-        if (zipcode < zipmin) {
-            zipmin = zipcode;
-        }
+    if (zipcode < zipmin) {
+        zipmin = zipcode;
     }
-    if (zipcodes.size() >= loadfactor*capacity) {
-        rehash(capacity*2);
+    if (zipcodes.size() + 1 >= loadfactor*capacity) {
+        //std::cout << "rehashing" << "\n";
+        rehash(capacity+2);
     }
     int key = hash(zipcode);
     zipcodes[key].Zipcode = zipcode;
@@ -49,26 +48,30 @@ void Hashtable::insert(int zipcode, std::string crime) {
 
 void Hashtable::rehash(int new_capacity)
 {
-
     capacity = new_capacity;
-    int hashzip = zipmin;
+    //std::cout << hashzip << " " << zipmin << "\n";
     std::map < int, ZipNode > nu_zipcodes;
     for (auto nodes : zipcodes){
-        int key = hash(nodes.first);
-        nu_zipcodes[key] = std::move(nodes.second);
+        int key = nodes.second.Zipcode % zipmin;
+        nu_zipcodes[key] = nodes.second;
     }
-    zipcodes = nu_zipcodes;
+    zipcodes = std::move(nu_zipcodes);
+    hashzip = zipmin;
 }
 
-// our function to basically flip key and the zipcode
-// O (log N)
-
-int Hashtable::getzip(int key) {
-    return zipcodes[key].Zipcode;
+Hashtable::ZipNode Hashtable::ZipNode::operator=(Hashtable::ZipNode s) {
+    this->Zipcode = s.Zipcode;
+    int i = 0;
+    for (auto items : s.Crimes)
+    {
+        this->Crimes[items.first] = items.second;
+        i++;
+    }
+    return *this;
 }
 
-// the function below gets our top 5 for the area with sorting the values stored
-// O(N)
+// the function below gets our top 5 for the area with sorting the values stored it uses a rather simple concept
+// there is a bit of difficulty as with many of these operations when it comes to the sorting
 
 std::vector < std::pair < std::string, int > > Hashtable::getTop5Zip(int zipcode) {
     std::vector < std::pair < std::string, int > > info;
@@ -84,6 +87,90 @@ std::vector < std::pair < std::string, int > > Hashtable::getTop5Zip(int zipcode
         dupe[i] = info[i];
     }
     return dupe;
+}
+
+// this is for totaling the crimes in a given zipcode, accessed with the key, you get a zip and a crime count
+// at this moment it will be used for the min/max heap
+// in the final implementation it is very useful for our top 5, with a time complexity of O (V) the number of instances
+// in a given zipcode
+
+int Hashtable::NumCrimes(int key) {
+    int count = 0;
+    for (auto infos : zipcodes[key].Crimes) {
+        count += infos.second;
+    }
+    return count;
+}
+
+// this function is basically gonna help the heap get made it is impractical to make the heap and fill it as the program runs
+// so instead I'm electing to build the heap using the processed information stored here
+
+std::vector<std::pair<int, std::map<std::string, int> > > Hashtable::Heaphelper() {
+    std::vector<std::pair<int, std::map<std::string, int> > > data;
+    for (auto items : zipcodes) {
+        data.push_back({items.second.Zipcode, items.second.Crimes});
+    }
+    return data;
+};
+
+// below is the function that will give us the final product for the top 5 areas in terms of crime, the beginning of it
+// takes our map and iterates through the objects in it and we use num crimes to tally up the total crimes of the area
+//
+
+std::vector<std::string> Hashtable::getTop5Num() {
+    std::vector<std::string> top5;
+    std::vector<std::pair < int, ZipNode > > holder;
+    for (auto items : zipcodes) {
+        holder.push_back({NumCrimes(items.first), items.second});
+    }
+    std::sort(holder.begin(), holder.end(), [](auto &a, auto &b) {
+        return a.first > b.first;
+    });
+    for (int i = 0; i < 5; i++) {
+        int count = 0;
+        std::string temp = std::to_string(holder[i].second.Zipcode) + " with " + std::to_string(holder[i].first) + " crimes [";
+        auto tem = holder[i].second.Crimes;
+        std::map<int, std::string, std::greater<int> > te;
+        for (auto item : tem) {
+            te[item.second] = item.first;
+        }
+        for (auto item : te) {
+            if (count < 2 && item.second != "NOT USED") {
+                std::cout << item.second << std::endl;
+                temp += item.second + ", ";
+                count++;
+            }
+            else if (count < 2)
+            {
+
+            }
+            else {
+                temp += item.second;
+                break;
+            }
+        }
+        temp += "]";
+        top5.push_back(temp);
+    }
+    return top5;
+}
+
+// Below is the memory of the previous functions that had a use, but now go unused
+
+// our function to basically flip key and the zipcode
+// O (log N)
+
+std::vector<std::pair<std::string, int> > Hashtable::getzipinfo(int zipcode) {
+    int zip = hash(zipcode);
+    std::vector<std::pair<std::string, int>> he;
+    for (auto items : zipcodes[zip].Crimes){
+        std::cout << items.first << " " << items.second << "\n";
+    }
+    return he;
+}
+
+int Hashtable::getzip(int key) {
+    return zipcodes[key].Zipcode;
 }
 
 std::pair<int, std::vector <std::pair <std::string, int> > > Hashtable::top5(ZipNode &s) {
@@ -115,25 +202,3 @@ std::vector<std::pair <int, std::vector <std::pair <std::string, int> > > > Hash
     }
     return top;
 }
-
-// this is for totaling the crimes in a given zipcode, accessed with the key, you get a zip and a crime count
-// at this moment it will be used for the min/max heap
-
-int Hashtable::NumCrimes(int key) {
-    int count = 0;
-    for (auto infos : zipcodes[key].Crimes) {
-        count += infos.second;
-    }
-    return count;
-}
-
-// this function is basically gonna help the heap get made it is impractical to make the heap and fill it as the program runs
-// so instead I'm electing to build the heap using the processed information stored here
-
-std::vector<std::pair<int, std::map<std::string, int> > > Hashtable::Heaphelper() {
-    std::vector<std::pair<int, std::map<std::string, int> > > data;
-    for (auto items : zipcodes) {
-        data.push_back({items.second.Zipcode, items.second.Crimes});
-    }
-    return data;
-};

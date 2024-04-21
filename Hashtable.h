@@ -23,6 +23,7 @@ private:
     struct ZipNode{
         int Zipcode;
         std::map<std::string, int> Crimes;
+        ZipNode operator=(ZipNode);
     };
 
     // now, I have a hashzip which will be seen later, but basically it is going to be the zipcode I'm going to use
@@ -33,7 +34,7 @@ private:
     // that you will see when taking a look at our rehash function!
 
     int hashzip;
-    const double loadfactor = 0.70;
+    double loadfactor = 0.6;
     std::map < int, ZipNode> zipcodes;
     int capacity;
     int zipmin;
@@ -51,6 +52,7 @@ public:
 
     // next I have some of the important things such as insertion, rehashing, and an accessor for the zipcode huh??
     // as you'll see basically my hash function takes a zipcode and turns it to a key, this is a way of turning it back
+    // get zip is unimplented in the final product so RIP
 
     void insert(int, std::string);
     void rehash(int);
@@ -59,6 +61,7 @@ public:
     // next I have our grand assortment of accessor functions, getting info for a zipcode, getting the maxes, etc
     // if you can commit it often or once, it'll come back in this data set
     // this is the accessor function that will use the zipcode to get information about an area
+    // another function that isn't going to make the cut RIP
 
     std::vector<std::pair<std::string, int> > getzipinfo(int);
 
@@ -68,8 +71,8 @@ public:
     std::pair<int, std::vector <std::pair <std::string, int> > > top5(ZipNode &s);
     std::vector<std::pair <int, std::vector <std::pair <std::string, int> > > > getTop5();
     int NumCrimes(int);
-
-    std::vector<std::pair<int, std::map<std::string, int> > > Heaphelper();
+    std::vector< std::string > getTop5Num();
+    std::vector< std::pair < int, std::map < std::string, int > > > Heaphelper();
 
 };
 

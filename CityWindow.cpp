@@ -3,9 +3,10 @@
 //
 
 #include "CityWindow.h"
-#include <iostream>
 
-CityWindow::CityWindow(const std::string& structureType) : window(sf::VideoMode(1200, 900), "City Data Visualization"), dataStructureType(structureType) {
+CityWindow::CityWindow(const std::string& structureType, class heap heap, Hashtable hash) : window(sf::VideoMode(1200, 900), "City Data Visualization"), dataStructureType(structureType) {
+    this->heap = heap;
+    this->hashtable = hash;
     loadFont();
     loadBackgroundImage();
     setupTitleText();
@@ -15,6 +16,9 @@ CityWindow::CityWindow(const std::string& structureType) : window(sf::VideoMode(
 
 void CityWindow::run() {
     while (window.isOpen()) {
+        // the request focus will bring the window forward and select it
+        window.requestFocus();
+        window.setActive(true);
         handleEvents();
         draw();
     }
@@ -24,6 +28,8 @@ void CityWindow::handleEvents() {
     sf::Event event;
     while (window.pollEvent(event)) {
         if (event.type == sf::Event::Closed) {
+            // the set active being false should help keep the windows in focus
+            window.setActive(false);
             window.close();
         }
     }
@@ -84,28 +90,40 @@ void CityWindow::setupCrimeRateText() {
 
 void CityWindow::setupCrimeRateRows() {
     // get the crime info here based off heap/hashtable buttons
+    std::vector<std::string> crime;
+    sf::Text time;
+    time.setFont(font);
     if (dataStructureType == "heap") {
-        //int rate1 = heap.pop()   and so on
+        auto start = high_resolution_clock::now();
+        crime = heap.getTop5Num();
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<microseconds>(stop - start);
+        time.setString("Time using a Heap: " +std::to_string(duration.count()) + " microseconds");
     }
     else {
-        //int rate1 = hashtable access
+        auto start = high_resolution_clock::now();
+        crime = hashtable.getTop5Num();
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<microseconds>(stop - start);
+        time.setString("Time using a Hashtable: " + std::to_string(duration.count()) + " microseconds");
+        auto info = hashtable.getzipinfo(70805);
     }
 
-    //Then we will get the data into the vector to list it
-
-
+    time.setCharacterSize(20);
+    time.setFillColor(sf::Color::Black);
+    time.setPosition(400.f, 600.f + 5 * 35.f);
 
     // Sample crime rate rows
-    const std::vector<std::string> crimeRates = {"1. Rate 1", "2. Rate 2", "3. Rate 3", "4. Rate 4", "5. Rate 5"};
-    const float startY = 610.f;
-    const float lineHeight = 40.f;
-    for (size_t i = 0; i < crimeRates.size(); ++i) {
+    const float startY = 600.f;
+    const float lineHeight = 35.f;
+    for (size_t i = 0; i < crime.size(); ++i) {
         sf::Text row;
         row.setFont(font);
-        row.setString(crimeRates[i]);
-        row.setCharacterSize(24);
+        row.setString(crime[i]);
+        row.setCharacterSize(20);
         row.setFillColor(sf::Color::Black);
-        row.setPosition(400.f, startY + i * lineHeight);
+        row.setPosition(300.f, startY + i * lineHeight);
         crimeRateRows.push_back(row);
     }
+    crimeRateRows.push_back(time);
 }

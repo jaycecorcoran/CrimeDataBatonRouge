@@ -6,13 +6,21 @@
 #define PROG3_CITYWINDOW_H
 
 #include <SFML/Graphics.hpp>
+#include "Heaps.h"
+#include "Hashtable.h"
+#include <iostream>
+#include <chrono>
+
+using namespace std::chrono;
 
 class CityWindow {
 public:
-    CityWindow(const std::string& structureType);
+    CityWindow(const std::string& structureType, heap, Hashtable);
     void run();
 
 private:
+    heap heap;
+    Hashtable hashtable;
     std::string dataStructureType;
     sf::RenderWindow window;
     sf::Font font;
