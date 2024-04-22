@@ -112,7 +112,7 @@ TitleWindow::TitleWindow() : window(sf::VideoMode(1200, 900), "Crime Data Visual
     errorMessage.setString("Error: Please input a valid zip code");
     errorMessage.setCharacterSize(20);
     errorMessage.setFillColor(sf::Color::Red);
-    errorMessage.setPosition((window.getSize().x - errorMessage.getLocalBounds().width) / 2, 510);
+    errorMessage.setPosition((window.getSize().x - errorMessage.getLocalBounds().width) / 2, 800);
 }
 
 void TitleWindow::run() {

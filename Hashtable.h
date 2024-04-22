@@ -6,6 +6,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <algorithm>
 
 #ifndef PROJ3_HASHTABLE_H
 #define PROJ3_HASHTABLE_H
