@@ -85,17 +85,18 @@ void ZipWindow::setupCrimeTexts() {
     // Set up crime texts
     const float startY = 610.f;
     const float lineHeight = 40.f;
-    std::cout << crimes.size() << std::endl;
     for (size_t i = 0; i < crimes.size(); ++i) {
         sf::Text crimeText;
         crimeText.setFont(font);
-        std::cout << std::to_string(i+1) + " " + crimes[i].first + " " + std::to_string(crimes[i].second) << std::endl;
-        crimeText.setString(std::to_string(i+1) + " " + crimes[i].first + " " + std::to_string(crimes[i].second));
+        if (crimes[i].first.empty() || std::to_string(crimes[i].second).empty()) {
+            crimeText.setString(std::to_string(i+1) + " " + "N/A");
+        }
+        else {
+            crimeText.setString(std::to_string(i+1) + " " + crimes[i].first + " " + std::to_string(crimes[i].second));
+        }
         crimeText.setCharacterSize(24);
         crimeText.setFillColor(sf::Color::Black);
         crimeText.setPosition(450.f, startY + i * lineHeight);
         crimeTexts.push_back(crimeText);
     }
 }
-
-
