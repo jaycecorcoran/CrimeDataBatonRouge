@@ -34,11 +34,7 @@ TitleWindow::TitleWindow() : window(sf::VideoMode(1200, 900), "Crime Data Visual
         heap.insert(item.first, item.second);
     }
 
-    validZipCodes = {"70820", "70802", "70805", "70815", "70807", "70816", "70809", "70806", "70726", "70811", "70808",
-                     "70801", "70819", "70769", "70770", "70814", "70810", "70812", "70825", "70836", "70791", "70813",
-                     "70817", "70782", "70185", "70823", "79816", "70502", "70783", "30083", "70803", "70818", "70053",
-                     "70785", "70422", "70508", "71101", "70767", "70062", "70898", "77099", "76018", "70503", "70804",
-                     "70739", "70722", "70714"};
+    validZipCodes = hashtable.ValidZip();
 
     displayErrorMessage = false;
 
@@ -175,7 +171,6 @@ void TitleWindow::handleEvents() {
                     // Open ZipWindow with the entered string
                     int zip = stoi(zipCode);
                     auto crimes = hashtable.getTop5Zip(zip);
-                    std::cout << zipCode << "l" << std::endl;
                     ZipWindow zipWindow(zipCode, crimes);
                     zipWindow.run();
                     displayErrorMessage = false;
