@@ -46,7 +46,7 @@ public:
     void insert(int, std::map<std::string, int>);
 
     // now this all is for getting our data and we are going to access it in two ways, listing the top 5 in all
-    // and listing the top 5 in one given zip
+    // and listing the top 5 in one given zip (not implemented)
 
     std::vector <std::pair <std::string, int> > getTop5Zip(int);
     std::vector< std::string > getTop5Num();
