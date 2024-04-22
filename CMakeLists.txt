@@ -3,6 +3,8 @@ project(Prog3)
 
 set(CMAKE_CXX_STANDARD 17)
 
+# if you're on a mac silicon then comment out the static library, as with it I got an error on mine
+# if you have an m1,m2,m3 comment it out otherwise you should be good
 
 set(SFML_STATIC_LIBRARIES TRUE)
 set(DCSV2_BUILD_TESTS TRUE)
