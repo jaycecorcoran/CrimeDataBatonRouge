@@ -6,6 +6,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <set>
 #include <algorithm>
 
 #ifndef PROJ3_HASHTABLE_H
@@ -66,6 +67,7 @@ public:
     std::vector< std::string > getTop5Num();
     std::vector< std::pair < int, std::map < std::string, int > > > Heaphelper();
     std::vector <std::pair <std::string, int> > getTop5Zip(int);
+    std::set<std::string> ValidZip();
 
 };
 
