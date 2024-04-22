@@ -164,3 +164,12 @@ std::vector<std::string> Hashtable::getTop5Num() {
     }
     return top5;
 }
+
+// Time complexity for this function is going to be a simple O(N * logN) where N is the objects in the map
+std::set<std::string> Hashtable::ValidZip() {
+    std::set<std::string> zips;
+    for (auto item : zipcodes) {
+        zips.insert(std::to_string(item.second.Zipcode));
+    }
+    return zips;
+}
